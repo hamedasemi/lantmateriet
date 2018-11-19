@@ -30,6 +30,18 @@ export default class LantmaterietMap extends PolymerElement {
 
     connectedCallback() {
         super.connectedCallback()
+        this.style.height = this.height
+        this.style.width = this.width
+
+        var map = L.map(this).setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+            .openPopup();
     }
 
 
@@ -38,6 +50,25 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     static get template() {
         return html`
+            <style include="app-shared-style">
+                :root {
+                    --baseline: 24px;
+                    --font-size: 18px;
+                    --line-height: calc(var(--baseline) / var(--font-size));
+                }
+
+                :host {
+                    font-size: 2rem;
+                    background: white;
+                    display: block;
+                    grid-template-areas: "header" "selector" "footer";
+                    grid-template-columns: auto;
+                    grid-template-rows: auto calc(100% - (var(--baseline) * 6)) auto;
+                    grid-template-rows: auto;
+                }
+
+            </style>
+
             <script>
                 if (window.customElements) {
                     window.customElements.forcePolyfill = true;
@@ -62,6 +93,16 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     static get properties() {
         return {
+            width: {
+                value: "0px",
+                type: String,
+                refelectToAttribute: true
+            },
+            height: {
+                value: "0px",
+                type: String,
+                refelectToAttribute: true
+            },
             state: {
                 type: Object,
                 value: {}
