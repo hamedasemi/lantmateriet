@@ -4,6 +4,8 @@
     "scripts": {
         "browser-sync": "browser-sync",
         "start": "browser-sync start --single --server ./ --watch --files **/*.* --ignore node_modules --logLevel debug --serveStatic config/development"
-      }
-  }
-  
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.3"
+    }
+}
