@@ -3,7 +3,7 @@
     "private": true,
     "scripts": {
         "browser-sync": "browser-sync",
-        "start": "browser-sync start --single --server ./ --watch --files **/*.* --ignore node_modules --logLevel debug --serveStatic config/development"
+        "start": "browser-sync start --single --server ./ --watch --files ./**/*.* --ignore node_modules --logLevel debug"
     },
     "devDependencies": {
         "browser-sync": "^2.26.3"
