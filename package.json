@@ -1,5 +1,9 @@
 {
     "name": "lantmateriet",
-    "private": true
+    "private": true,
+    "scripts": {
+        "browser-sync": "browser-sync",
+        "start": "browser-sync start --single --server ./ --watch --files **/*.* --ignore node_modules --logLevel debug --serveStatic config/development"
+      }
   }
   
