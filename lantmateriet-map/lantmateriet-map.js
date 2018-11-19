@@ -7,7 +7,8 @@
 // Imports
 // ------------------------------------------------------------------------------------------------------------------------------------------
 import { PolymerElement, html } from '/lantmateriet-map/node_modules/@polymer/polymer/polymer-element.js'
-import { } from '/lantmateriet-map/shared/app-shared-style.js'
+import { } from '/lantmateriet-map/shared/style.js'
+
 import { } from './core/user-agent/user-agent.js'
 
 
