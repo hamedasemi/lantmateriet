@@ -50,7 +50,7 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     static get template() {
         return html`
-            <style include="app-shared-style">
+            <style include="shared-style">
                 :root {
                     --baseline: 24px;
                     --font-size: 18px;
