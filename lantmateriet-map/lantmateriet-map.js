@@ -58,7 +58,14 @@ export default class LantmaterietMap extends PolymerElement {
 
             </style>
 
+            <app-aside></app-aside>
+            <app-details></app-details>
+            <app-filter></app-filter>
+            <app-footer></app-footer>
+            <app-logo></app-logo>
             <app-map></app-map>
+            <app-search></app-search>
+            <app-tags></app-tags>
 
             <noscript>Your browser does not support JavaScript!</noscript>
         `
