@@ -30,8 +30,8 @@ export default class LantmaterietMap extends PolymerElement {
         // ------------------------------------------------------------------------------------------------------------------------------------------
     }
 
-    connectedCallback() {
-        super.connectedCallback()
+    ready() {
+        super.ready()
         this.style.height = this.height
         this.style.width = this.width
 
