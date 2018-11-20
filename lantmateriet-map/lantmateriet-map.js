@@ -68,7 +68,7 @@ export default class LantmaterietMap extends PolymerElement {
             </style>
 
             
-            <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+            <app-map></app-map>
 
             <slot></slot>
                         
