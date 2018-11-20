@@ -21,9 +21,11 @@ export default class LantmaterietMap extends PolymerElement {
     constructor() {
         super()
 
+        
         // ------------------------------------------------------------------------------------------------------------------------------------------
         // Event listeners
         // ------------------------------------------------------------------------------------------------------------------------------------------
+
 
         // ------------------------------------------------------------------------------------------------------------------------------------------
         // Initialize events
@@ -56,10 +58,8 @@ export default class LantmaterietMap extends PolymerElement {
 
             </style>
 
-            
             <app-map></app-map>
 
-                        
             <noscript>Your browser does not support JavaScript!</noscript>
         `
     }
@@ -103,7 +103,6 @@ export default class LantmaterietMap extends PolymerElement {
         console.log("%c[STATE Update]", 'color: #16a085', update)
         console.groupEnd()
     }
-
 }
 
 
