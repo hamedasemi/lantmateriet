@@ -8,6 +8,7 @@ export default class AppMap extends PolymerElement {
 
                 :host {
                     display: block;
+                    grid-area: map;
                     width: 100%;
                     height: 100%;
                 }
