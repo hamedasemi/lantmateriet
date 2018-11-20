@@ -63,10 +63,6 @@ export default class LantmaterietMap extends PolymerElement {
                     font-size: 2rem;
                     background: white;
                     display: block;
-                    grid-template-areas: "header" "selector" "footer";
-                    grid-template-columns: auto;
-                    grid-template-rows: auto calc(100% - (var(--baseline) * 6)) auto;
-                    grid-template-rows: auto;
                 }
 
             </style>
