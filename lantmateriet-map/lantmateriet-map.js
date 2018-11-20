@@ -9,7 +9,6 @@
 import { PolymerElement, html } from './node_modules/@polymer/polymer/polymer-element.js'
 import { } from './shared/style.js'
 
-import { } from './core/map/map.js'
 import { } from './core/user-agent/user-agent.js'
 
 import { } from './core/aside/aside.js'
@@ -29,7 +28,7 @@ export default class LantmaterietMap extends PolymerElement {
     constructor() {
         super()
 
-        
+
         // ------------------------------------------------------------------------------------------------------------------------------------------
         // Event listeners
         // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -52,21 +51,30 @@ export default class LantmaterietMap extends PolymerElement {
     static get template() {
         return html`
             <style include="shared-style">
-                :root {
-                    --baseline: 24px;
-                    --font-size: 18px;
-                    --line-height: calc(var(--baseline) / var(--font-size));
-                }
-
                 :host {
-                    font-size: 2rem;
+                    --baseline: 24px;
+                    --font-size: 16px;
+                    --line-height: calc(var(--baseline) / var(--font-size));
+                    
+                    font-size: var(--font-size);
+                    line-height: 1;
                     background: white;
-                    display: block;
+                    display: grid;
+                    grid-template-areas: "logo search tags aside" "filter map map details" "filter map map details" "footer footer footer footer";
+                    grid-template-columns: 25rem auto 25rem 25rem;
+                    grid-template-rows: 6rem 6rem auto 1.6rem;
                 }
 
             </style>
 
+            <app-aside></app-aside>
+            <app-details></app-details>
+            <app-filter></app-filter>
+            <app-footer></app-footer>
+            <app-logo></app-logo>
             <app-map></app-map>
+            <app-search></app-search>
+            <app-tags></app-tags>
 
             <noscript>Your browser does not support JavaScript!</noscript>
         `
