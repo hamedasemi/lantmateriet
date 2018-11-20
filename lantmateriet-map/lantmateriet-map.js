@@ -67,13 +67,6 @@ export default class LantmaterietMap extends PolymerElement {
 
             </style>
 
-            <script>
-                if (window.customElements) {
-                    window.customElements.forcePolyfill = true;
-                }
-                ShadyDOM = { force: true };
-                ShadyCSS = { shimcssproperties: false };
-            </script>
             
             <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
