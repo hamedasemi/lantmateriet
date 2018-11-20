@@ -30,7 +30,6 @@ export default class AppMap extends PolymerElement {
 
         L.marker([51.505, -0.09]).addTo(map)
             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-            .openPopup()
 
         window.dispatchEvent(new Event('resize'))
 
