@@ -12,6 +12,14 @@ import { } from './shared/style.js'
 import { } from './core/map/map.js'
 import { } from './core/user-agent/user-agent.js'
 
+import { } from './core/aside/aside.js'
+import { } from './core/details/details.js'
+import { } from './core/filter/filter.js'
+import { } from './core/footer/footer.js'
+import { } from './core/logo/logo.js'
+import { } from './core/map/map.js'
+import { } from './core/search/search.js'
+import { } from './core/tags/tags.js'
 
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // Initialize state
@@ -58,14 +66,7 @@ export default class LantmaterietMap extends PolymerElement {
 
             </style>
 
-            <app-aside></app-aside>
-            <app-details></app-details>
-            <app-filter></app-filter>
-            <app-footer></app-footer>
-            <app-logo></app-logo>
             <app-map></app-map>
-            <app-search></app-search>
-            <app-tags></app-tags>
 
             <noscript>Your browser does not support JavaScript!</noscript>
         `
