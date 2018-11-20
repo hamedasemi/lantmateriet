@@ -9,6 +9,7 @@
 import { PolymerElement, html } from './node_modules/@polymer/polymer/polymer-element.js'
 import { } from './shared/style.js'
 
+import { } from './core/map/map.js'
 import { } from './core/user-agent/user-agent.js'
 
 
