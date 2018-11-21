@@ -61,8 +61,8 @@ export default class LantmaterietMap extends PolymerElement {
                     background: white;
                     display: grid;
                     grid-template-areas: "logo search tags aside" "filter map map details" "filter map map details" "footer footer footer footer";
-                    grid-template-columns: 25rem auto 25rem 25rem;
-                    grid-template-rows: 6rem 6rem auto 1.6rem;
+                    grid-template-columns: 25rem 25rem auto 25rem;
+                    grid-template-rows: 6rem 6rem auto 2rem;
                 }
 
             </style>
