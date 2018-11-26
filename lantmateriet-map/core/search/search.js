@@ -12,7 +12,7 @@ export default class AppSearch extends PolymerElement {
                 }
 
             </style>
-                search
+            <input type="text" placeholder="Search">
             <slot></slot>
         `
     }
