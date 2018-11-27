@@ -26,13 +26,91 @@ export default class AppMap extends PolymerElement {
 
         L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).addTo(map)
 
-        let yourUserDefinedLayerNameGoesHere;
+        let landscapesLayer = {};
+        let municipalitiesLayer = {};
+        let countryLayer = {};
 
-        map.on('zoomend', (data) => {
+        fetch(new Request('lantmateriet-map/core/map/data/country.json'))
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                } else {
+                    throw new Error('Something went wrong on api server!')
+                }
+            })
+            .then(response => {
+                countryLayer = L.geoJSON(response, {
+                    style: {
+                        fillColor: "Gray",
+                        color: "white"
+                    }
+                }).addTo(map)
+
+
+
+            }).catch(error => {
+                console.error(error)
+            })
+
+        map.on('zoom', (data) => {
             console.log('zoom', data.target._zoom)
 
-            if (7 <= data.target._zoom && data.target._zoom <= 14) {
-                if (!map.hasLayer(yourUserDefinedLayerNameGoesHere)) {
+
+
+            if (1 < data.target._zoom && data.target._zoom <= 5) {
+                if (!map.hasLayer(countryLayer)) {
+                    fetch(new Request('lantmateriet-map/core/map/data/country.json'))
+                        .then(response => {
+                            if (response.status === 200) {
+                                return response.json()
+                            } else {
+                                throw new Error('Something went wrong on api server!')
+                            }
+                        })
+                        .then(response => {
+                            countryLayer = L.geoJSON(response, {
+                                style: {
+                                    fillColor: "Gray",
+                                    color: "white"
+                                }
+                            }).addTo(map)
+
+
+
+                        }).catch(error => {
+                            console.error(error)
+                        })
+                }
+                map.removeLayer(landscapesLayer)
+                map.removeLayer(municipalitiesLayer)
+            } else if (5 < data.target._zoom && data.target._zoom <= 7) {
+                if (!map.hasLayer(landscapesLayer)) {
+                    fetch(new Request('lantmateriet-map/core/map/data/landscapes.json'))
+                        .then(response => {
+                            if (response.status === 200) {
+                                return response.json()
+                            } else {
+                                throw new Error('Something went wrong on api server!')
+                            }
+                        })
+                        .then(response => {
+                            landscapesLayer = L.geoJSON(response, {
+                                style: {
+                                    fillColor: "Gold",
+                                    color: "White"
+                                }
+                            }).addTo(map)
+
+
+
+                        }).catch(error => {
+                            console.error(error)
+                        })
+                }
+                map.removeLayer(countryLayer)
+                map.removeLayer(municipalitiesLayer)
+            } else if (7 < data.target._zoom && data.target._zoom <= 18) {
+                if (!map.hasLayer(municipalitiesLayer)) {
                     fetch(new Request('lantmateriet-map/core/map/data/municipalities.json'))
                         .then(response => {
                             if (response.status === 200) {
@@ -42,7 +120,11 @@ export default class AppMap extends PolymerElement {
                             }
                         })
                         .then(response => {
-                            yourUserDefinedLayerNameGoesHere = L.geoJSON(response, {
+                            municipalitiesLayer = L.geoJSON(response, {
+                                style: {
+                                    fillColor: "DeepSkyBlue",
+                                    color: "white"
+                                }
                             }).addTo(map)
 
 
@@ -50,11 +132,14 @@ export default class AppMap extends PolymerElement {
                         }).catch(error => {
                             console.error(error)
                         })
-                } else {
-
                 }
+                map.removeLayer(countryLayer)
+                map.removeLayer(landscapesLayer)
+
             } else {
-                map.removeLayer(yourUserDefinedLayerNameGoesHere)
+                map.removeLayer(landscapesLayer)
+                map.removeLayer(municipalitiesLayer)
+                map.removeLayer(countryLayer)
             }
         })
         window.dispatchEvent(new Event('resize'))
