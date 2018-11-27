@@ -22,8 +22,14 @@ export default class AppMap extends PolymerElement {
     ready() {
         super.ready()
 
-        var map = L.map(this).setView([61.6794500443896, 16.375], 5)
+        var map = L.map(this, {
+            zoomControl: false
+        }).setView([61.6794500443896, 16.375], 5)
 
+
+        L.control.zoom({
+            position: 'bottomright'
+        }).addTo(map);
         L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).addTo(map)
 
         let landscapesLayer = {};
