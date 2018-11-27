@@ -33,20 +33,20 @@ export default class AppMap extends PolymerElement {
         fetch(new Request('lantmateriet-map/core/map/data/municipalities.json'))
             .then(response => {
                 if (response.status === 200) {
-                    return response.json();
+                    return response.json()
                 } else {
-                    throw new Error('Something went wrong on api server!');
+                    throw new Error('Something went wrong on api server!')
                 }
             })
             .then(response => {
                 L.geoJSON(response, {
-                }).addTo(map);
+                }).addTo(map)
 
                 window.dispatchEvent(new Event('resize'))
 
             }).catch(error => {
-                console.error(error);
-            });
+                console.error(error)
+            })
     }
 
     static get properties() {
