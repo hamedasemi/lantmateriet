@@ -18,7 +18,5 @@ jobs:
 
     steps:
       - checkout
-      - run: cd lantmateriet-map
       - run: npm install
-      - run: cd ..
       - run: npm run firebase deploy -- --project "lantmateriet-map" --token "$FIREBASE_TOKEN" --only "hosting" --debug

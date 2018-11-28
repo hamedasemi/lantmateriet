@@ -6,7 +6,7 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // Imports
 // ------------------------------------------------------------------------------------------------------------------------------------------
-import { PolymerElement, html } from './node_modules/@polymer/polymer/polymer-element.js'
+import { PolymerElement, html } from '../node_modules/@polymer/polymer/polymer-element.js'
 import { } from './shared/style.js'
 
 import { } from './core/user-agent/user-agent.js'
@@ -21,6 +21,9 @@ import { } from './core/map/map.js'
 import { } from './core/menu/menu.js'
 import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
+
+import { } from './shared/drop-down/drop-down.js'
+
 
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // Initialize state
@@ -80,7 +83,9 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-search></app-search>
                 <app-tags></app-tags>
                 <app-details></app-details>
-                <app-filter></app-filter>
+                <app-filter>
+                    <app-drop-down></app-drop-down>
+                </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
             </app-menu>
