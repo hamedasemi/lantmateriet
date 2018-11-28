@@ -15,7 +15,7 @@ Trunk-Based Development is a key enabler of Continuous Integration and by extens
 ## Continuous Deployment
 Automate your pipeline from commit to deploy with CircleCI [![CircleCI](https://circleci.com/gh/hamedasemi/lantmateriet-client.svg)](https://circleci.com/gh/hamedasemi/lantmateriet-client)
 
-#3 The Technology
+## The Technology
 Imagination, meet implementation. HTML5 is the cornerstone of the W3C's open web platform; a framework designed to support innovation and foster the full potential the web has to offer. Heralding this revolutionary collection of tools and standards, the HTML5 identity system provides the visual vocabulary to clearly classify and communicate our collective efforts.
 
 [![HTML5](https://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-device-graphics-multimedia-performance-semantics-storage.png)](https://www.w3.org/html/)
