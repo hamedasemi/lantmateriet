@@ -1,1 +1,3 @@
-[![CircleCI](https://circleci.com/gh/hamedasemi/lantmateriet-client.svg?style=svg?style=svg)](https://circleci.com/gh/hamedasemi/lantmateriet-client)
+# Lantmäteriet
+
+[![CircleCI](https://circleci.com/gh/hamedasemi/lantmateriet-client.svg)](https://circleci.com/gh/hamedasemi/lantmateriet-client)
