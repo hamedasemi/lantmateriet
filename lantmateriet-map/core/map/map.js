@@ -64,7 +64,7 @@ export default class AppMap extends PolymerElement {
                 console.error(error)
             })
 
-        map.on('zoom', (data) => {
+        map.on('zoomend', (data) => {
             console.log('zoom', data.target._zoom)
 
 
