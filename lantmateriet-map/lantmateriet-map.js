@@ -142,6 +142,7 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     appMenuToggleHandler() {
         this.appMenuToggle = !this.appMenuToggle
+        window.dispatchEvent(new Event('resize'))
     }
 }
 
