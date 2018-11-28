@@ -141,7 +141,6 @@ export default class LantmaterietMap extends PolymerElement {
     // Handlers
     // ------------------------------------------------------------------------------------------------------------------------------------------
     appMenuToggleHandler() {
-        console.log(1414)
         this.appMenuToggle = !this.appMenuToggle
     }
 }
