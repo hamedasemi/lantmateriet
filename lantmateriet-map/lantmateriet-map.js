@@ -74,12 +74,14 @@ export default class LantmaterietMap extends PolymerElement {
             </style>
 
             <app-menu>
+                <app-logo></app-logo>
+                <app-text>Filtrera sökning</app-text>
+                <app-text>Vad vill du se?</app-text>
                 <app-search></app-search>
                 <app-tags></app-tags>
                 <app-details></app-details>
                 <app-filter></app-filter>
                 <app-aside></app-aside>
-                <app-logo></app-logo>
                 <app-footer></app-footer>
             </app-menu>
             <app-map></app-map>
@@ -112,7 +114,7 @@ export default class LantmaterietMap extends PolymerElement {
                 reflectToAttribute: true
             },
             appMenuToggle: {
-                value: true,
+                value: false,
                 type: Boolean,
                 reflectToAttribute: true
             },

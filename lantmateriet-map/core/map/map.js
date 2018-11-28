@@ -25,8 +25,8 @@ export default class AppMap extends PolymerElement {
 
         var map = L.map(this, {
             zoomControl: false,
-            maxBounds: L.latLngBounds(L.latLng(45, 67), L.latLng(72, -35)),
-            maxBoundsViscosity: 1.0
+            // maxBounds: L.latLngBounds(L.latLng(45, 67), L.latLng(72, -35)),
+            // maxBoundsViscosity: 1.0
         }).setView([61.6794500443896, 16.375], 5)
 
         L.control.zoom({
