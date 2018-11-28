@@ -13,6 +13,19 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
       body, p, h1, h2, h3, h4, h5, h6{
         margin: 0;
       }
+
+      .leaflet-touch .leaflet-bar {
+        border: 0;
+      }
+
+      .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+        background: orange;
+        color: white;
+      }
+
+      .leaflet-touch .leaflet-bar a:last-child {
+        margin-top: 10px;
+      }
     </style>
   </template>
 </dom-module>`;
