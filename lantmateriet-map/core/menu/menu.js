@@ -57,7 +57,6 @@ export default class AppMenu extends PolymerElement {
 
     ready() {
         super.ready()
-
     }
 
     static get properties() {
