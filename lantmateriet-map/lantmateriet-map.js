@@ -64,7 +64,7 @@ export default class LantmaterietMap extends PolymerElement {
                     background: white;
                     display: grid;
                     grid-template-areas: "menu map" "menu map";
-                    grid-template-columns: 40rem auto;
+                    grid-template-columns: 30rem auto;
                     grid-template-rows: auto;
                 }
 
