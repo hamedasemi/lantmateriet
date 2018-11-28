@@ -62,21 +62,23 @@ export default class LantmaterietMap extends PolymerElement {
                     line-height: 1;
                     background: white;
                     display: grid;
-                    grid-template-areas: "logo search tags aside" "filter map map details" "filter map map details" "footer footer footer footer";
-                    grid-template-columns: 25rem 25rem auto 25rem;
-                    grid-template-rows: 6rem 6rem auto 2rem;
+                    grid-template-areas: "menu map" "menu map";
+                    grid-template-columns: 40rem auto;
+                    grid-template-rows: auto;
                 }
-
             </style>
 
-            <app-aside></app-aside>
-            <app-details></app-details>
-            <app-filter></app-filter>
-            <app-footer></app-footer>
-            <app-logo></app-logo>
+            <app-menu>
+                <app-search></app-search>
+                <app-tags></app-tags>
+                <app-details></app-details>
+                <app-filter></app-filter>
+                <app-aside></app-aside>
+                <app-logo></app-logo>
+                <app-footer></app-footer>
+            </app-menu>
             <app-map></app-map>
-            <app-search></app-search>
-            <app-tags></app-tags>
+            
 
             <noscript>Your browser does not support JavaScript!</noscript>
         `
