@@ -12,7 +12,6 @@ export default class AppTags extends PolymerElement {
                 }
 
             </style>
-                tags
             <slot></slot>
         `
     }
