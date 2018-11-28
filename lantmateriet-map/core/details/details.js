@@ -12,7 +12,6 @@ export default class AppDetails extends PolymerElement {
                 }
 
             </style>
-            details
             <slot></slot>
         `
     }
