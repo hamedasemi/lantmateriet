@@ -18,6 +18,7 @@ import { } from './core/footer/footer.js'
 import { } from './core/header/header.js'
 import { } from './core/logo/logo.js'
 import { } from './core/map/map.js'
+import { } from './core/menu/menu.js'
 import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 
