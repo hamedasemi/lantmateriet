@@ -19,6 +19,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
       }
 
       .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-bar a.leaflet-disabled {
+        border-radius: 4px;
         -webkit-tap-highlight-color: transparent;
         background: orange;
         color: white;
