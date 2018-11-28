@@ -93,7 +93,7 @@ export default class LantmaterietMap extends PolymerElement {
 
     static get observers() {
         return [
-            'stateUpdateHandler(state.*)'
+            'stateUpdate(state.*)'
         ]
     }
 
@@ -129,14 +129,14 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     // Methods and functions
     // ------------------------------------------------------------------------------------------------------------------------------------------
-    stateUpdateHandler(update) {
+    stateUpdate(update) {
         console.group("%c[STATE]", 'color: #16a085', new Date().toLocaleTimeString())
         console.log("%c[STATE Current]", 'color: #16a085', this.state)
         console.log("%c[STATE Update]", 'color: #16a085', update)
         console.groupEnd()
     }
 
-    
+
     // ------------------------------------------------------------------------------------------------------------------------------------------
     // Handlers
     // ------------------------------------------------------------------------------------------------------------------------------------------
