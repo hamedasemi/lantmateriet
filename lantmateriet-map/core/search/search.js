@@ -9,6 +9,7 @@ export default class AppSearch extends PolymerElement {
                 :host {
                     display: block;
                     grid-area: search;
+                    padding: 22px;
                 }
 
                 input {
