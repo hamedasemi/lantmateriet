@@ -11,6 +11,11 @@ export default class AppSearch extends PolymerElement {
                     grid-area: search;
                 }
 
+                input {
+                    width: 100%;
+                    height: 44px;
+                }
+
             </style>
             <input type="text" placeholder="Search">
             <slot></slot>
