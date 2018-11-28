@@ -67,6 +67,10 @@ export default class LantmaterietMap extends PolymerElement {
                     grid-template-columns: 40rem auto;
                     grid-template-rows: auto;
                 }
+
+                :host([app-menu-toggle]) {
+                    grid-template-columns: 0rem auto;
+                }
             </style>
 
             <app-menu>
