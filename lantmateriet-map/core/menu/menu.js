@@ -59,7 +59,7 @@ export default class AppMenu extends PolymerElement {
     }
 
     toggle() {
-        console.log(1212)
+        this.dispatchEvent(new CustomEvent('app-menu-toggle', { bubbles: true, composed: true, detail: {} }))
     }
 
     static get properties() {
