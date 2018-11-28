@@ -18,7 +18,13 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
         border: 0;
       }
 
-      .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+      .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-bar a.leaflet-disabled {
+        -webkit-tap-highlight-color: transparent;
+        background: orange;
+        color: white;
+      }
+
+      .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover, leaflet-disabled:hover {
         background: orange;
         color: white;
       }
