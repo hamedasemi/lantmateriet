@@ -12,7 +12,6 @@ export default class AppFooter extends PolymerElement {
                 }
 
             </style>
-                footer
             <slot></slot>
         `
     }
