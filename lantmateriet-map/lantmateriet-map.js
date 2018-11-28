@@ -124,6 +124,13 @@ export default class LantmaterietMap extends PolymerElement {
         console.log("%c[STATE Update]", 'color: #16a085', update)
         console.groupEnd()
     }
+    // ------------------------------------------------------------------------------------------------------------------------------------------
+    // Handlers
+    // ------------------------------------------------------------------------------------------------------------------------------------------
+    appMenuToggleHandler() {
+        console.log(1414)
+        this.appMenuToggle = !this.appMenuToggle
+    }
 }
 
 
