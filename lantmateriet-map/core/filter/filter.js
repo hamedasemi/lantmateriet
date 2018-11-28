@@ -9,10 +9,10 @@ export default class AppFilter extends PolymerElement {
                 :host {
                     display: block;
                     grid-area: filter;
+                    flex-grow: 1;
                 }
 
             </style>
-                filter
             <slot></slot>
         `
     }
