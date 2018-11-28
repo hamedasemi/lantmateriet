@@ -3,9 +3,11 @@
     "private": true,
     "scripts": {
         "browser-sync": "browser-sync",
+        "firebase": "firebase",
         "start": "browser-sync start --single --server ./ --watch --files ./**/*.* --ignore node_modules --logLevel debug"
     },
     "devDependencies": {
-        "browser-sync": "^2.26.3"
+        "browser-sync": "^2.26.3",
+        "firebase-tools": "^6.1.1"
     }
 }
