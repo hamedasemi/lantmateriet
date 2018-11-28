@@ -104,12 +104,17 @@ export default class LantmaterietMap extends PolymerElement {
             width: {
                 value: "0px",
                 type: String,
-                refelectToAttribute: true
+                reflectToAttribute: true
             },
             height: {
                 value: "0px",
                 type: String,
-                refelectToAttribute: true
+                reflectToAttribute: true
+            },
+            appMenuToggle: {
+                value: true,
+                type: Boolean,
+                reflectToAttribute: true
             },
             state: {
                 type: Object,
