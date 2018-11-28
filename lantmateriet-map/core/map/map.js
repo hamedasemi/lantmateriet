@@ -53,8 +53,8 @@ export default class AppMap extends PolymerElement {
             .then(response => {
                 countryLayer = L.geoJSON(response, {
                     style: {
-                        fillColor: "Gray",
-                        color: "white"
+                        fillColor: "orange",
+                        color: "orange"
                     }
                 }).addTo(map)
 
@@ -82,8 +82,8 @@ export default class AppMap extends PolymerElement {
                         .then(response => {
                             countryLayer = L.geoJSON(response, {
                                 style: {
-                                    fillColor: "Gray",
-                                    color: "white"
+                                    fillColor: "orange",
+                                    color: "orange"
                                 }
                             }).addTo(map)
 
@@ -108,8 +108,8 @@ export default class AppMap extends PolymerElement {
                         .then(response => {
                             landscapesLayer = L.geoJSON(response, {
                                 style: {
-                                    fillColor: "Gold",
-                                    color: "White"
+                                    fillColor: "orange",
+                                    color: "orange"
                                 }
                             }).addTo(map)
 
@@ -134,8 +134,8 @@ export default class AppMap extends PolymerElement {
                         .then(response => {
                             municipalitiesLayer = L.geoJSON(response, {
                                 style: {
-                                    fillColor: "DeepSkyBlue",
-                                    color: "white"
+                                    fillColor: "orange",
+                                    color: "orange"
                                 }
                             }).addTo(map)
 
