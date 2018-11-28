@@ -9,6 +9,12 @@ export default class AppLogo extends PolymerElement {
                 :host {
                     display: block;
                     grid-area: logo;
+                    
+                    /* box-shadow: 0 0 10px gray; */
+                }
+                
+                svg {
+                    height: 100%;
                 }
 
             </style>
