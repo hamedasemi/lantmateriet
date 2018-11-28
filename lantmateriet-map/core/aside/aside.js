@@ -12,7 +12,6 @@ export default class AppAside extends PolymerElement {
                 }
 
             </style>
-                aside
             <slot></slot>
         `
     }
