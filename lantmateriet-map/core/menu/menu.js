@@ -26,12 +26,13 @@ export default class AppMenu extends PolymerElement {
                     top: 11px;
                     width: 60px;
                     height: 60px;
-                    background: white;
-                    transform: rotate(-90deg);
+                    background: orange;
                 }
                 svg {
-                    height: 20px;
-                    width: 30px;
+                    height: 50%;
+                    width: 50%;
+                    fill: white;
+
                 }
                 div {
                     height: 100%;
@@ -41,10 +42,12 @@ export default class AppMenu extends PolymerElement {
                     display: flex;
                     flex-direction: column;
                 }
+
+                
             </style>
             <app-toggle on-click="toggle">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path d="M23 14c-0.278 0-0.555-0.116-0.753-0.341l-6.247-7.14-6.247 7.14c-0.364 0.416-0.995 0.458-1.411 0.094s-0.458-0.995-0.094-1.411l7-8c0.19-0.217 0.464-0.341 0.753-0.341s0.563 0.125 0.753 0.341l7 8c0.364 0.416 0.322 1.047-0.094 1.411-0.19 0.166-0.424 0.247-0.658 0.247z"></path>
+                <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path>
                 </svg>
             </app-toggle>
             <div>
