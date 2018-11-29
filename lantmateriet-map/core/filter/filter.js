@@ -10,10 +10,12 @@ export default class AppFilter extends PolymerElement {
                     display: block;
                     grid-area: filter;
                     flex-grow: 1;
+                    padding: 22px;
                 }
 
             </style>
             <slot></slot>
+            <hr>
         `
     }
 
