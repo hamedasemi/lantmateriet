@@ -17,9 +17,15 @@ export default class AppDropDown extends PolymerElement {
                     border-radius: 4px;
                     background-color: #f8f8f8;
                     padding: 11px;
+                    display: block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 [options] {
                     display: none;
+                    position: absolute;
+                    background-color: #f8f8f8;
                 }
                 [active][options] {
                     display: flex;
