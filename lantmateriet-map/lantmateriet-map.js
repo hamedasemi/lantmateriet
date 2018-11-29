@@ -84,7 +84,9 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-tags></app-tags>
                 <app-details></app-details>
                 <app-filter>
-                    <app-drop-down></app-drop-down>
+                    <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
+                    <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
+                    <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
                 </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
@@ -125,7 +127,71 @@ export default class LantmaterietMap extends PolymerElement {
             },
             state: {
                 type: Object,
-                value: {}
+                value: {
+                    filter: [{
+                        index: 0,
+                        text: "Lorem, ipsum",
+                        selected: false
+                    }, {
+                        index: 1,
+                        text: "Aspernatur, iste",
+                        selected: false
+                    }, {
+                        index: 2,
+                        text: "Deleniti, impedit",
+                        selected: false
+                    }, {
+                        index: 3,
+                        text: "Expedita, perspiciatis",
+                        selected: false
+                    }, {
+                        index: 4,
+                        text: "Molestiae, exercitationem",
+                        selected: false
+                    }],
+                    filter2: [{
+                        index: 0,
+                        text: "Lorem, ipsum",
+                        selected: false
+                    }, {
+                        index: 1,
+                        text: "Aspernatur, iste",
+                        selected: false
+                    }, {
+                        index: 2,
+                        text: "Deleniti, impedit",
+                        selected: false
+                    }, {
+                        index: 3,
+                        text: "Expedita, perspiciatis",
+                        selected: false
+                    }, {
+                        index: 4,
+                        text: "Molestiae, exercitationem",
+                        selected: false
+                    }],
+                    filter3: [{
+                        index: 0,
+                        text: "Lorem, ipsum",
+                        selected: false
+                    }, {
+                        index: 1,
+                        text: "Aspernatur, iste",
+                        selected: false
+                    }, {
+                        index: 2,
+                        text: "Deleniti, impedit",
+                        selected: false
+                    }, {
+                        index: 3,
+                        text: "Expedita, perspiciatis",
+                        selected: false
+                    }, {
+                        index: 4,
+                        text: "Molestiae, exercitationem",
+                        selected: false
+                    }]
+                }
             }
         }
     }
