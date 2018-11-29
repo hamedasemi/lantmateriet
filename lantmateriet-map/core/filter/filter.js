@@ -13,6 +13,10 @@ export default class AppFilter extends PolymerElement {
                     padding: 22px;
                 }
 
+                ::slotted() app-drop-down{
+                    margin-bottom: 11px;
+                }
+
             </style>
             <slot></slot>
             <hr>
