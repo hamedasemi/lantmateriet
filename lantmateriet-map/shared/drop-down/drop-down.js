@@ -12,27 +12,56 @@ export default class AppDropDown extends PolymerElement {
                     display: block;
                 }
 
-                :host [selected] {
+                :host > [selected] {
                     border: 1px solid black;
+                    border-radius: 4px;
+                    background-color: #f8f8f8;
+                    padding: 11px;
                 }
                 [options] {
+                    display: none;
+                }
+                [active][options] {
+                    display: flex;
+                    flex-direction: column;
+                }
+                [option][selected] {
+
+                }
+                input, span {
+                    pointer-events: none;
                 }
             </style>
-            <div selected>
-                <dom-repeat items="[[options]]" as="option">
+ 
+            <div selected on-click="selectedClick">
+                <dom-if if="[[!getSelectedStats(options)]]">
                     <template>
-                    <dom-if if="[[option.selected]]">
-                        <template>
-                            <span>[[option.text]]</span>
-                        </template>
-                    </dom-if>
+                        [[placeholder]]
+                    </template>
+                </dom-if>
+                <dom-repeat items="[[options]]" as="option">
+                    <template>      
+                        <dom-if if="[[option.selected]]">
+                            <template>
+                                <span>[[option.text]]</span>
+                            </template>
+                        </dom-if>
                     </template>
                 </dom-repeat>
-            </div>
-            <div options>
-                <dom-repeat items="[[options]]" as="option">
+                <!-- <dom-if if="[[getSelectedStats(options)]]">
                     <template>
-                        <div option selected$="[[option.selected]]">[[option.text]]</div>
+                        [[getSelectedStats(options)]] vald
+                    </template>
+                </dom-if> -->
+            </div>
+           
+            <div options active$="[[active]]">
+                <dom-repeat items="[[options]]" as="option">
+                    <template>      
+                        <div option selected$="[[option.selected]]" on-click="optionClick" index="[[option.index]]">
+                            <input type="checkbox" checked$="[[option.selected]]">
+                            <span>[[option.text]]</span>
+                        </div>
                     </template>
                 </dom-repeat>
             </div>
@@ -41,25 +70,38 @@ export default class AppDropDown extends PolymerElement {
 
     ready() {
         super.ready()
+    }
 
+    selectedClick() {
+        this.active = !this.active
+    }
+
+    optionClick(e) {
+        this.set(`options.${e.target.index}.selected`, !this.get(`options.${e.target.index}.selected`))
+        let options = this.get('options')
+        this.set('options', [])
+        this.set('options', options)
+    }
+
+    getSelectedStats(options) {
+        let selectedStats = 0
+        options.map((option) => {
+            if (option.selected) {
+                selectedStats++
+            }
+        })
+        return selectedStats
     }
 
     static get properties() {
         return {
             options: {
                 type: Array,
-                value: [{
-                    text: "Lorem, ipsum"
-                }, {
-                    text: "Aspernatur, iste",
-                    selected: true
-                }, {
-                    text: "Deleniti, impedit"
-                }, {
-                    text: "Expedita, perspiciatis"
-                }, {
-                    text: "Molestiae, exercitationem"
-                }]
+                value: () => { return [] }
+            },
+            placeholder: {
+                type: String,
+                value: ""
             }
         }
     }
