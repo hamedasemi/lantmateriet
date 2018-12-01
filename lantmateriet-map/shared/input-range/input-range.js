@@ -38,6 +38,7 @@ export default class AppInputRange extends PolymerElement {
                 [max-handle] {
                     right: 0;
                 }
+                
                 [highlight] {
                     pointer-events: none;
                     position: absolute;
