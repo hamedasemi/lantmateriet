@@ -9,37 +9,36 @@ export default class AppInputRange extends PolymerElement {
                     display: block;
                     width: 100%;
                     height: 100%;
+                    padding: 12px;
                 }
 
                 [track] {
                     position: relative;
-                    background: gray;
+                    background: #5c5c5c;
                     width: 100%;
-                    height: 100%;
+                    height: 3px;
                 }
+
+                [min-handle], [max-handle] {
+                    background-color: #f7f7f7;
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+                    pointer-events: none;
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    top: -12px;
+                    z-index: 10;
+                }
+
                 [min-handle] {
-                    pointer-events: none;
-                    position: absolute;
-                    background: red;
-                    width: 8px;
-                    height: 100%;
-                    top: 0;
                     left: 0;
-                    z-index: 10;
                 }
+
                 [max-handle] {
-                    pointer-events: none;
-                    position: absolute;
-                    top: 0;
                     right: 0;
-                    background: green;
-                    width: 8px;
-                    height: 100%;
-                    z-index: 10;
                 }
             </style>
-
-            <hr>
 
             min: [[min]] max: [[max]]
 
@@ -65,7 +64,7 @@ export default class AppInputRange extends PolymerElement {
     }
 
     mousemove(e) {
-        let offsetX = e.offsetX
+        let offsetX = e.offsetX - 12
         if (Math.abs(this.minHandle.offsetLeft - offsetX) <= Math.abs(this.maxHandle.offsetLeft - offsetX)) {
             this.min = offsetX
             this.minHandle.style.left = offsetX + "px"
