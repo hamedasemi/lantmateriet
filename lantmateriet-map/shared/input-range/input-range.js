@@ -43,8 +43,8 @@ export default class AppInputRange extends PolymerElement {
             min: [[min]] max: [[max]]
             
             <div track on-mousedown="mousedown">
-                <div min-handle on-mousedown="minHandleMousedown"></div>
-                <div max-handle on-mousedown="maxHandleMousedown"></div>
+                <div min-handle></div>
+                <div max-handle></div>
             </div>
         `
     }
@@ -53,48 +53,6 @@ export default class AppInputRange extends PolymerElement {
         return {
         }
     }
-
-    minHandleMousedown() {
-        // console.log('minmousedown')
-        // this.addEventListener('mousemove', this.minMousemove)
-        // this.addEventListener('mouseup', this.minMouseup)
-
-        // this.minHandle = this.shadowRoot.querySelector('[min-handle]')
-    }
-    
-    maxHandleMousedown() {
-        // console.log('maxmousedown')
-        // this.addEventListener('mousemove', this.maxMousemove)
-        // this.addEventListener('mouseup', this.maxMouseup)
-        
-        // this.maxHandle = this.shadowRoot.querySelector('[max-handle]')
-    }
-
-    // minMousemove(e) {
-    //     console.log('minmousemove', e.offsetX)
-    //     this.minHandle.style.pointerEvents = "none"
-    //     this.minHandle.style.left = e.offsetX - 12 + "px"
-    // }
-
-    // maxMousemove(e) {
-    //     console.log('maxmousemove', e.offsetX)
-    //     this.maxHandle.style.pointerEvents = "none"
-    //     this.maxHandle.style.left = e.offsetX - 12 + "px"
-    // }
-
-    // minMouseup() {
-    //     console.log('minmouseup')
-    //     this.removeEventListener('mousemove', this.minMousemove)
-    //     this.removeEventListener('mouseup', this.minMouseup)
-    //     this.minHandle.style.pointerEvents = "auto"
-    // }
-
-    // maxMouseup() {
-    //     console.log('maxmouseup')
-    //     this.removeEventListener('mousemove', this.maxMousemove)
-    //     this.removeEventListener('mouseup', this.maxMouseup)
-    //     this.maxHandle.style.pointerEvents = "auto"
-    // }
 
     mousedown(e) {
         this.track = this
