@@ -23,6 +23,7 @@ import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 
 import { } from './shared/drop-down/drop-down.js'
+import { } from './shared/input-range/input-range.js'
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -87,6 +88,7 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
+                    <app-input-range></app-input-range>
                 </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
