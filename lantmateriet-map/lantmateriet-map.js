@@ -88,7 +88,7 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
-                    <app-input-range></app-input-range>
+                    <app-input-range min="0" max="10000"></app-input-range>
                 </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
