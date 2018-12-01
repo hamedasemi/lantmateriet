@@ -38,11 +38,21 @@ export default class AppInputRange extends PolymerElement {
                 [max-handle] {
                     right: 0;
                 }
+                [highlight] {
+                    pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: red;
+                }
             </style>
 
             min: [[min]] max: [[max]]
             
             <div track on-mousedown="mousedown">
+                <div highlight></div>
                 <div min-handle></div>
                 <div max-handle></div>
             </div>
@@ -58,6 +68,7 @@ export default class AppInputRange extends PolymerElement {
         this.track = this
         this.minHandle = this.shadowRoot.querySelector('[min-handle]')
         this.maxHandle = this.shadowRoot.querySelector('[max-handle]')
+        this.highlight = this.shadowRoot.querySelector('[highlight]')
         this.mousemove(e)
         this.addEventListener('mousemove', this.mousemove)
         this.addEventListener('mouseup', this.mouseup)
@@ -67,9 +78,13 @@ export default class AppInputRange extends PolymerElement {
         let offsetX = e.offsetX - 12
         if (Math.abs(this.minHandle.offsetLeft - offsetX) <= Math.abs(this.maxHandle.offsetLeft - offsetX)) {
             this.min = offsetX
+            this.highlight.style.left = offsetX + "px"
+            console.log(this.track.clientWidth)
+            this.highlight.style.width = Math.abs(  offsetX - this.maxHandle.offsetLeft - 24) + "px"
             this.minHandle.style.left = offsetX + "px"
         } else {
             this.max = offsetX
+            this.highlight.style.width = Math.abs(  offsetX - this.minHandle.offsetLeft + 24) + "px"
             this.maxHandle.style.left = offsetX + "px"
         }
 
