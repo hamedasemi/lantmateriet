@@ -2,6 +2,8 @@ import { html, PolymerElement } from '../../../node_modules/@polymer/polymer/pol
 import { } from '../../../node_modules/@polymer/polymer/lib/elements/dom-repeat.js'
 import { } from '../../../node_modules/@polymer/polymer/lib/elements/dom-if.js'
 
+import { } from '../icon/icon.js'
+
 export default class AppDropDown extends PolymerElement {
 
     static get template() {
@@ -11,7 +13,11 @@ export default class AppDropDown extends PolymerElement {
                 :host {
                     display: block;
                     position: relative;
-                    
+                }
+
+                app-icon {
+                    width: 16px;
+                    height: 16px;
                 }
                 
                 :host > [selected] {
@@ -25,6 +31,7 @@ export default class AppDropDown extends PolymerElement {
                     border-top-right-radius: 4px;
                     border-top-left-radius: 4px;
                 }
+
                 [options] {
                     z-index: 1;
                     display: none;
@@ -35,13 +42,16 @@ export default class AppDropDown extends PolymerElement {
                     box-shadow: 0px 5px 17px -5px;
                     border: 1px solid black;
                 }
+
                 [active][options] {
                     display: flex;
                     flex-direction: column;
                 }
+
                 [option][selected] {
 
                 }
+
                 input, span {
                     pointer-events: none;
                 }
@@ -51,9 +61,8 @@ export default class AppDropDown extends PolymerElement {
                 <dom-if if="[[!getSelectedStats(options)]]">
                     <template>
                         [[placeholder]] 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="35" viewBox="0 0 60 35">
-                            <path fill="#333" fill-rule="evenodd" d="M57.236 6.4a3.236 3.236 0 0 0 0-4.582 3.2 3.2 0 0 0-4.509 0L29.091 25.455 5.455 1.818a3.2 3.2 0 0 0-4.564 0A3.164 3.164 0 0 0 0 4.11 3.2 3.2 0 0 0 .945 6.4l28.146 28.145L57.236 6.4z"/>
-                        </svg>
+
+                        <app-icon icon="arrow-down"></app-icon>
 
                     </template>
                 </dom-if>
