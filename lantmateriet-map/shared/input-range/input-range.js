@@ -49,8 +49,9 @@ export default class AppInputRange extends PolymerElement {
                     background: red;
                 }
             </style>
-
+            
             min: [[min]] max: [[max]]
+            min: [[minValue]] max: [[maxValue]]
             
             <div track on-mousedown="mousedown">
                 <div highlight></div>
@@ -62,6 +63,12 @@ export default class AppInputRange extends PolymerElement {
 
     static get properties() {
         return {
+            min: {
+                type: Number
+            },
+            max: {
+                type: Number
+            }
         }
     }
 
@@ -76,18 +83,19 @@ export default class AppInputRange extends PolymerElement {
     }
 
     mousemove(e) {
-        let offsetX = e.offsetX - 12
+        let offsetX = e.offsetX - (this.maxHandle.clientWidth / 2)
         if (Math.abs(this.minHandle.offsetLeft - offsetX) <= Math.abs(this.maxHandle.offsetLeft - offsetX)) {
-            this.min = offsetX
+            this.minValue = offsetX + (this.minHandle.clientWidth / 2)
             this.highlight.style.left = offsetX + "px"
-            this.highlight.style.width = Math.abs(offsetX - this.maxHandle.offsetLeft - 24) + "px"
+            this.highlight.style.width = Math.abs(offsetX - this.maxHandle.offsetLeft - this.maxHandle.clientWidth) + "px"
             this.minHandle.style.left = offsetX + "px"
+            this.minValue = Math.round((this.minValue / this.clientWidth) * this.max)
         } else {
-            this.max = offsetX
-            this.highlight.style.width = Math.abs(offsetX - this.minHandle.offsetLeft + 24) + "px"
+            this.maxValue = offsetX + (this.maxHandle.clientWidth / 2)
+            this.highlight.style.width = Math.abs(offsetX - this.minHandle.offsetLeft + this.minHandle.clientWidth) + "px"
             this.maxHandle.style.left = offsetX + "px"
+            this.maxValue = Math.round((this.maxValue / this.clientWidth) * this.max)
         }
-
     }
 
     mouseup() {
