@@ -80,11 +80,11 @@ export default class AppInputRange extends PolymerElement {
             this.min = offsetX
             this.highlight.style.left = offsetX + "px"
             console.log(this.track.clientWidth)
-            this.highlight.style.width = Math.abs(  offsetX - this.maxHandle.offsetLeft - 24) + "px"
+            this.highlight.style.width = Math.abs(offsetX - this.maxHandle.offsetLeft - 24) + "px"
             this.minHandle.style.left = offsetX + "px"
         } else {
             this.max = offsetX
-            this.highlight.style.width = Math.abs(  offsetX - this.minHandle.offsetLeft + 24) + "px"
+            this.highlight.style.width = Math.abs(offsetX - this.minHandle.offsetLeft + 24) + "px"
             this.maxHandle.style.left = offsetX + "px"
         }
 
