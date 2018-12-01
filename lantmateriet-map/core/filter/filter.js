@@ -17,6 +17,12 @@ export default class AppFilter extends PolymerElement {
                     margin-bottom: 11px;
                 }
 
+                ::slotted() app-input-range{
+                    width: 100%;
+                    height: 20px;
+                    margin-bottom: 11px;
+                }
+
             </style>
             <slot></slot>
             <hr>
