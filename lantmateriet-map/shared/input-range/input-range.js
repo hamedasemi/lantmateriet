@@ -10,13 +10,38 @@ export default class AppInputRange extends PolymerElement {
                     width: 100%;
                     height: 100%;
                     user-select: none;
+                    position: relative;
+
                 }
 
                 [track] {
                     position: relative;
-                    background: #5c5c5c;
                     width: 100%;
                     height: 100%;
+                }
+
+                [_track] {
+                    position: absolute;
+                    background: #b1b1b1;
+                    width: 100%;
+                    height: 5px;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left:0;
+                    margin: auto;
+                }
+                
+                [_highlight] {
+                    position: absolute;
+                    background: #5c5c5c;
+                    width: 100%;
+                    height: 5px;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left:0;
+                    margin: auto;
                 }
 
                 [min-handle], [max-handle] {
@@ -45,14 +70,14 @@ export default class AppInputRange extends PolymerElement {
                     left: 0;
                     height: 100%;
                     width: 100%;
-                    background: gray;
                 }
             </style>
-            
-            min: [[minValue]] max: [[maxValue]]
-            
+
             <div track on-mousedown="mousedown">
-                <div highlight></div>
+                <div _track></div>
+                <div highlight>
+                    <div _highlight></div>
+                </div>
                 <div min-handle></div>
                 <div max-handle></div>
             </div>
@@ -100,6 +125,8 @@ export default class AppInputRange extends PolymerElement {
             this.maxHandle.style.left = offsetX + "px"
             this.maxValue = Math.round(((this.maxValue + (this.minHandle.clientWidth / 2)) / this.clientWidth) * this.max)
         }
+
+        // this.dispatchEvent(new CustomEvent('max-value-change', { bubbles: true, composed: true, detail: { target: event.target.href } }))
     }
 
     mouseup() {
