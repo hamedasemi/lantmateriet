@@ -25,7 +25,6 @@ export default class AppFilter extends PolymerElement {
 
             </style>
             <slot></slot>
-            <hr>
         `
     }
 
