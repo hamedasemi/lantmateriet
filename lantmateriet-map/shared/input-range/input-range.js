@@ -45,7 +45,7 @@ export default class AppInputRange extends PolymerElement {
                     left: 0;
                     height: 100%;
                     width: 100%;
-                    background: red;
+                    background: gray;
                 }
             </style>
             
@@ -81,17 +81,24 @@ export default class AppInputRange extends PolymerElement {
 
     mousemove(e) {
         let offsetX = e.offsetX - (this.maxHandle.clientWidth / 2)
+
+        if (offsetX < 0) {
+            offsetX = 0
+        } else if (offsetX > this.clientWidth - this.maxHandle.clientWidth) {
+            offsetX = this.clientWidth - this.maxHandle.clientWidth
+        }
+
         if (Math.abs(this.minHandle.offsetLeft - offsetX) <= Math.abs(this.maxHandle.offsetLeft - offsetX)) {
             this.minValue = offsetX + (this.minHandle.clientWidth / 2)
             this.highlight.style.left = offsetX + "px"
             this.highlight.style.width = Math.abs(offsetX - this.maxHandle.offsetLeft - this.maxHandle.clientWidth) + "px"
             this.minHandle.style.left = offsetX + "px"
-            this.minValue = Math.round((this.minValue / this.clientWidth) * this.max)
+            this.minValue = Math.round(((this.minValue - (this.minHandle.clientWidth / 2)) / this.clientWidth) * this.max)
         } else {
             this.maxValue = offsetX + (this.maxHandle.clientWidth / 2)
             this.highlight.style.width = Math.abs(offsetX - this.minHandle.offsetLeft + this.minHandle.clientWidth) + "px"
             this.maxHandle.style.left = offsetX + "px"
-            this.maxValue = Math.round((this.maxValue / this.clientWidth) * this.max)
+            this.maxValue = Math.round(((this.maxValue + (this.minHandle.clientWidth / 2)) / this.clientWidth) * this.max)
         }
     }
 
