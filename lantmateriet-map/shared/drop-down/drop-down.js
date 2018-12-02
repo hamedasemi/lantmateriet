@@ -23,13 +23,16 @@ export default class AppDropDown extends PolymerElement {
                 :host > [selected] {
                     background-color: #f8f8f8;
                     padding: 11px;
-                    display: block;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    display: flex;
+                    justify-content: space-between;
                     border: 1px solid black;
                     border-top-right-radius: 4px;
                     border-top-left-radius: 4px;
+                }
+                :host [selected-nest] {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 [options] {
@@ -55,17 +58,20 @@ export default class AppDropDown extends PolymerElement {
                 input, span {
                     pointer-events: none;
                 }
+
+                app-icon {
+                    min-width: 16px;
+                }
             </style>
  
             <div selected on-click="selectedClick">
-                <dom-if if="[[!getSelectedStats(options)]]">
-                    <template>
-                        [[placeholder]] 
-
-                        <app-icon icon="arrow-down"></app-icon>
-
-                    </template>
-                </dom-if>
+                
+                    <dom-if if="[[!getSelectedStats(options)]]">
+                        <template>
+                            [[placeholder]] 
+                        </template>
+                    </dom-if>
+                    <div selected-nest>
                 <dom-repeat items="[[options]]" as="option">
                     <template>      
                         <dom-if if="[[option.selected]]">
@@ -75,11 +81,13 @@ export default class AppDropDown extends PolymerElement {
                         </dom-if>
                     </template>
                 </dom-repeat>
+                </div>
                 <!-- <dom-if if="[[getSelectedStats(options)]]">
                     <template>
                         [[getSelectedStats(options)]] vald
                     </template>
                 </dom-if> -->
+                <app-icon icon="arrow-down"></app-icon>
             </div>
            
             <div options active$="[[active]]">
