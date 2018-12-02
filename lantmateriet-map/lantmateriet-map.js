@@ -88,7 +88,22 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
+                    <p>Tillåten byggnadshöjd</p>
+                    <p>0 m - 100 m </p>
+                    <app-input-range min="0" max="100"></app-input-range>
+                    <hr>
+                    <p>Tillåten nockhöjd</p>
+                    <p>0 m - 100 m </p>
+                    <app-input-range min="0" max="100"></app-input-range>
+                    <hr>
+                    <p>Tillåten byggnadsarea</p>
+                    <p>0 kvm - 500+ kvm </p>
+                    <app-input-range min="0" max="500"></app-input-range>
+                    <hr>
+                    <p>Tillåten tomtarea</p>
+                    <p>0 kvm - 10000+ kvm </p>
                     <app-input-range min="0" max="10000"></app-input-range>
+                    <hr>
                 </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
