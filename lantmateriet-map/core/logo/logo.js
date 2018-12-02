@@ -19,7 +19,7 @@ export default class AppLogo extends PolymerElement {
 
             </style>
                 <svg id="Lager_1" data-name="Lager 1" 
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 57.2">
+                    xmlns="http://www.w3.org/2000/svg" viewBox="5 0 276 57.2">
                     <defs>
                         <style>.cls-1{fill:#fffffd;}.cls-1,.cls-2,.cls-3,.cls-4{stroke:#1d1d1b;stroke-miterlimit:2.61;}.cls-1,.cls-3,.cls-4{stroke-width:1.22px;}.cls-1,.cls-3{fill-rule:evenodd;}.cls-2,.cls-4{fill:none;}.cls-2{stroke-width:0.76px;}.cls-3{fill:#e40428;}.cls-5{fill:#1d1d1b;}</style>
                     </defs>
