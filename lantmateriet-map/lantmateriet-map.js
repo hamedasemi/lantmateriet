@@ -21,6 +21,7 @@ import { } from './core/map/map.js'
 import { } from './core/menu/menu.js'
 import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
+import { } from './core/title/title.js'
 
 import { } from './shared/drop-down/drop-down.js'
 import { } from './shared/input-range/input-range.js'
@@ -79,8 +80,10 @@ export default class LantmaterietMap extends PolymerElement {
 
             <app-menu>
                 <app-logo></app-logo>
-                <app-text>Filtrera sökning</app-text>
-                <app-text>Vad vill du se?</app-text>
+                <app-title>
+                    <p>Filtrera sökning</p>
+                    <p>Vad vill du se?</p>
+                </app-title>
                 <app-search></app-search>
                 <app-tags></app-tags>
                 <app-details></app-details>
