@@ -19,7 +19,7 @@ export default class AppFilter extends PolymerElement {
 
                 ::slotted() app-input-range{
                     width: 100%;
-                    height: 20px;
+                    height: 24px;
                     margin-bottom: 11px;
                 }
 
