@@ -28,7 +28,6 @@ export default class AppInputRange extends PolymerElement {
                     height: 24px;
                     border-radius: 50%;
                     top: 0;
-                    z-index: 10;
                 }
 
                 [min-handle] {
@@ -50,7 +49,6 @@ export default class AppInputRange extends PolymerElement {
                 }
             </style>
             
-            min: [[min]] max: [[max]]
             min: [[minValue]] max: [[maxValue]]
             
             <div track on-mousedown="mousedown">
@@ -73,7 +71,6 @@ export default class AppInputRange extends PolymerElement {
     }
 
     mousedown(e) {
-        this.track = this
         this.minHandle = this.shadowRoot.querySelector('[min-handle]')
         this.maxHandle = this.shadowRoot.querySelector('[max-handle]')
         this.highlight = this.shadowRoot.querySelector('[highlight]')
