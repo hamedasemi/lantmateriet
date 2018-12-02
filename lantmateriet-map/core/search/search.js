@@ -18,6 +18,9 @@ export default class AppSearch extends PolymerElement {
                     height: 44px;
                     border: 1px solid;
                     border-radius: 4px;
+                    padding: 11px;
+                    font-size: inherit;
+                    outline: none;
                 }
 
                 svg {
