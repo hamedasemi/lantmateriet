@@ -8,10 +8,10 @@ export default class AppInputRange extends PolymerElement {
                 :host {
                     display: block;
                     width: 100%;
-                    height: 100%;
+                    height: 24px;
                     user-select: none;
                     position: relative;
-
+                    margin-bottom: 11px;
                 }
 
                 [track] {
