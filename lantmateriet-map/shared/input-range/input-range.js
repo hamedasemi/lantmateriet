@@ -73,7 +73,7 @@ export default class AppInputRange extends PolymerElement {
                 }
             </style>
 
-            <div track on-mousedown="mousedown">
+            <div track on-touchstart="mousedown" on-mousedown="mousedown">
                 <div _track></div>
                 <div highlight>
                     <div _highlight></div>
@@ -100,12 +100,23 @@ export default class AppInputRange extends PolymerElement {
         this.maxHandle = this.shadowRoot.querySelector('[max-handle]')
         this.highlight = this.shadowRoot.querySelector('[highlight]')
         this.mousemove(e)
-        this.addEventListener('mousemove', this.mousemove)
-        this.addEventListener('mouseup', this.mouseup)
+        if (e.touches) {
+            this.addEventListener('touchmove', this.mousemove)
+            this.addEventListener('touchend', this.mouseup)
+        } else {
+            this.addEventListener('mousemove', this.mousemove)
+            this.addEventListener('mouseup', this.mouseup)
+        }
+
     }
 
     mousemove(e) {
-        let offsetX = e.offsetX - (this.maxHandle.clientWidth / 2)
+        let offsetX
+        if (e.touches) {
+            offsetX = (e.touches[0].pageX - e.touches[0].target.offsetLeft) - (this.maxHandle.clientWidth / 2)
+        } else {
+            offsetX = e.offsetX - (this.maxHandle.clientWidth / 2)
+        }
 
         if (offsetX < 0) {
             offsetX = 0
