@@ -9,7 +9,6 @@ export default class AppLogo extends PolymerElement {
                 :host {
                     display: block;
                     grid-area: logo;
-                    padding: 22px;
                     /* box-shadow: 0 0 10px gray; */
                 }
                 
@@ -45,7 +44,6 @@ export default class AppLogo extends PolymerElement {
                     <polygon class="cls-5" points="226.52 28.4 234.89 28.4 234.89 26.14 228.94 26.14 228.94 21.31 234.72 21.31 234.72 19.05 228.94 19.05 228.94 15.63 234.89 15.63 234.89 13.37 226.52 13.37 226.52 28.4"/>
                     <polygon class="cls-5" points="245.23 13.37 245.23 15.63 248.65 15.63 248.65 28.4 251.06 28.4 251.06 15.63 254.49 15.63 254.49 13.37 245.23 13.37"/>
                 </svg>
-                <hr>
         `
     }
 
