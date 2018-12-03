@@ -11,11 +11,10 @@ export default class AppMenu extends PolymerElement {
                     flex-direction: column;
                     grid-area: menu;
                     position: relative;
-                    padding: 24px;
                     z-index: 10000;
                     /*box-shadow: 0px 0px 12px -5px;*/
                 }
-
+                
                 app-toggle {
                     position: absolute;
                     /*box-shadow: 5px 0px 7px -6px;*/
@@ -47,16 +46,35 @@ export default class AppMenu extends PolymerElement {
                     flex-direction: column;
                 }
 
+                [app-menu-toggle] div {
+                    background: red;
+                    padding: 0;
+                    overflow: hidden;
+                }
+
+                main {
+                    overflow: auto;
+                    display: block;
+                    height: 100vh;
+                    padding: 24px;
+                }
+
+
                 
             </style>
             <app-toggle on-click="toggle">
                 <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path>
+                    <!-- <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path> -->
+                    <path d="M15.422 7.406l-4.594 4.594 4.594 4.594-1.406 1.406-6-6 6-6z"></path>
+
                 </svg>
+                
                 <span>Dölj</span>
             </app-toggle>
             <div>
-                <slot></slot>
+                <main>
+                    <slot></slot>
+                </main>
             </div>
            
         `
