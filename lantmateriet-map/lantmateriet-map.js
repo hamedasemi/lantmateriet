@@ -23,6 +23,7 @@ import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 import { } from './core/title/title.js'
 
+import { } from './shared/line/line.js'
 import { } from './shared/drop-down/drop-down.js'
 import { } from './shared/input-range/input-range.js'
 
