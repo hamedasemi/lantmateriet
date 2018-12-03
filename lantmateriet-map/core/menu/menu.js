@@ -11,7 +11,7 @@ export default class AppMenu extends PolymerElement {
                     flex-direction: column;
                     grid-area: menu;
                     position: relative;
-                    
+                    padding: 24px;
                     z-index: 10000;
                     /*box-shadow: 0px 0px 12px -5px;*/
                 }
