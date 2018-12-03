@@ -81,33 +81,35 @@ export default class LantmaterietMap extends PolymerElement {
 
             <app-menu>
                 <app-logo></app-logo>
+                <app-line horizontal margin-top></app-line>
                 <app-title>
                     <p>Filtrera sökning</p>
                     <p>Vad vill du se?</p>
                 </app-title>
+                <app-line horizontal margin-bottom></app-line>
                 <app-search></app-search>
-                <app-tags></app-tags>
-                <app-details></app-details>
+                <app-line horizontal margin-bottom margin-top></app-line>
                 <app-filter>
                     <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
+                    <app-line horizontal margin-bottom></app-line>
                     <p>Tillåten byggnadshöjd</p>
                     <p>0 m - 100 m </p>
                     <app-input-range min="0" max="100"></app-input-range>
-                    <hr>
+                    <app-line horizontal margin-bottom margin-top></app-line>
                     <p>Tillåten nockhöjd</p>
                     <p>0 m - 100 m </p>
                     <app-input-range min="0" max="100"></app-input-range>
-                    <hr>
+                    <app-line horizontal margin-bottom margin-top></app-line>
                     <p>Tillåten byggnadsarea</p>
                     <p>0 kvm - 500+ kvm </p>
                     <app-input-range min="0" max="500"></app-input-range>
-                    <hr>
+                    <app-line horizontal margin-bottom margin-top></app-line>
                     <p>Tillåten tomtarea</p>
                     <p>0 kvm - 10000+ kvm </p>
                     <app-input-range min="0" max="10000"></app-input-range>
-                    <hr>
+                    <app-line horizontal margin-bottom margin-top></app-line>
                 </app-filter>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
