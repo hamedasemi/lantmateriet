@@ -10,7 +10,6 @@ export default class AppSearch extends PolymerElement {
                     display: block;
                     grid-area: search;
                     position: relative;
-                    padding: 22px;
                 }
 
                 input {
@@ -25,8 +24,8 @@ export default class AppSearch extends PolymerElement {
 
                 svg {
                     position: absolute;
-                    right: 33px;
-                    top: 33px;
+                    right: 12px;
+                    top: 12px;
                     
                 }
 
@@ -38,7 +37,6 @@ export default class AppSearch extends PolymerElement {
             </svg>
                 
             <slot></slot>
-            <hr>
         `
     }
 
