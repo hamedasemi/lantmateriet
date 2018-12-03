@@ -8,7 +8,7 @@ export default class AppTitle extends PolymerElement {
 
                 :host {
                     display: block;
-                    padding: 22px;
+                    padding: 22px 0px;
                 }
 
             </style>
