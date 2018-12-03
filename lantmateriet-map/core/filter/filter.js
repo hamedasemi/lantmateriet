@@ -10,17 +10,6 @@ export default class AppFilter extends PolymerElement {
                     display: block;
                     grid-area: filter;
                     flex-grow: 1;
-                    padding: 22px;
-                }
-
-                ::slotted() app-drop-down{
-                    margin-bottom: 11px;
-                }
-
-                ::slotted() app-input-range{
-                    width: 100%;
-                    height: 24px;
-                    margin-bottom: 11px;
                 }
 
             </style>
