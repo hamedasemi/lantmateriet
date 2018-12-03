@@ -23,6 +23,7 @@ import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 import { } from './core/title/title.js'
 
+import { } from './shared/text/text.js'
 import { } from './shared/line/line.js'
 import { } from './shared/drop-down/drop-down.js'
 import { } from './shared/input-range/input-range.js'
@@ -94,20 +95,20 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
                     <app-line horizontal margin-bottom></app-line>
-                    <p>Tillåten byggnadshöjd</p>
-                    <p>0 m - 100 m </p>
+                    <app-text margin-bottom>Tillåten byggnadshöjd</app-text>
+                    <app-text margin-bottom center>0 m - 100 m </app-text>
                     <app-input-range min="0" max="100"></app-input-range>
                     <app-line horizontal margin-bottom margin-top></app-line>
-                    <p>Tillåten nockhöjd</p>
-                    <p>0 m - 100 m </p>
+                    <app-text margin-bottom>Tillåten nockhöjd</app-text>
+                    <app-text margin-bottom center>0 m - 100 m </app-text>
                     <app-input-range min="0" max="100"></app-input-range>
                     <app-line horizontal margin-bottom margin-top></app-line>
-                    <p>Tillåten byggnadsarea</p>
-                    <p>0 kvm - 500+ kvm </p>
+                    <app-text margin-bottom>Tillåten byggnadsarea</app-text>
+                    <app-text margin-bottom center>0 kvm - 500+ kvm </app-text>
                     <app-input-range min="0" max="500"></app-input-range>
                     <app-line horizontal margin-bottom margin-top></app-line>
-                    <p>Tillåten tomtarea</p>
-                    <p>0 kvm - 10000+ kvm </p>
+                    <app-text margin-bottom>Tillåten tomtarea</app-text>
+                    <app-text margin-bottom center>0 kvm - 10000+ kvm </app-text>
                     <app-input-range min="0" max="10000"></app-input-range>
                     <app-line horizontal margin-bottom margin-top></app-line>
                 </app-filter>
