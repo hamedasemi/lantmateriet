@@ -13,6 +13,7 @@ export default class AppDropDown extends PolymerElement {
                 :host {
                     display: block;
                     position: relative;
+                    margin-bottom: 24px;
                 }
 
                 app-icon {
