@@ -92,9 +92,9 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-search></app-search>
                 <app-line horizontal margin-bottom margin-top></app-line>
                 <app-filter>
-                    <app-drop-down options="[[state.filter]]" placeholder="Välj typ av marker"></app-drop-down>
-                    <app-drop-down options="[[state.filter2]]" placeholder="Välj anslutningar"></app-drop-down>
-                    <app-drop-down options="[[state.filter3]]" placeholder="Välj närliggande"></app-drop-down>
+                    <app-drop-down options="[[state.filter]]" placeholder="Välj närmiljö"></app-drop-down>
+                    <app-drop-down options="[[state.filter2]]" placeholder="Välj typ av mark"></app-drop-down>
+                    <app-drop-down options="[[state.filter3]]" placeholder="Välj anslutningar"></app-drop-down>
                     <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten byggnadshöjd</app-text>
                     <app-text margin-bottom center>0 m - 100 m </app-text>
@@ -155,65 +155,77 @@ export default class LantmaterietMap extends PolymerElement {
                 value: {
                     filter: [{
                         index: 0,
-                        text: "Lorem ipsum",
+                        text: "Motorvägar",
                         selected: false
                     }, {
                         index: 1,
-                        text: "Aspernatur iste",
+                        text: "Flygplatser",
                         selected: false
                     }, {
                         index: 2,
-                        text: "Deleniti impedit",
+                        text: "Strandnära",
                         selected: false
                     }, {
                         index: 3,
-                        text: "Expedita perspiciatis",
+                        text: "Havsnära",
                         selected: false
                     }, {
                         index: 4,
-                        text: "Molestiae exercitationem",
+                        text: "Skolor",
+                        selected: false
+                    }, {
+                        index: 5,
+                        text: "Parker",
                         selected: false
                     }],
                     filter2: [{
                         index: 0,
-                        text: "Lorem ipsum",
+                        text: "Privatägd mark",
                         selected: false
                     }, {
                         index: 1,
-                        text: "Aspernatur iste",
+                        text: "Kommunalägd mark",
                         selected: false
                     }, {
                         index: 2,
-                        text: "Deleniti impedit",
+                        text: "Bostäder",
                         selected: false
                     }, {
                         index: 3,
-                        text: "Expedita perspiciatis",
+                        text: "Industri",
                         selected: false
                     }, {
                         index: 4,
-                        text: "Molestiae exercitationem",
+                        text: "Naturområde",
+                        selected: false
+                    }, {
+                        index: 5,
+                        text: "Jordbruk",
+                        selected: false
+                    }, {
+                        index: 6,
+                        text: "Handel",
+                        selected: false
+                    }, {
+                        index: 7,
+                        text: "Strandskydd",
                         selected: false
                     }],
                     filter3: [{
                         index: 0,
-                        text: "Lorem ipsum",
+                        text: "VA",
                         selected: false
                     }, {
                         index: 1,
-                        text: "Aspernatur iste",
+                        text: "EL",
                         selected: false
                     }, {
                         index: 2,
-                        text: "Deleniti impedit",
+                        text: "Fiberanslutning",
                         selected: false
                     }, {
                         index: 3,
-                        text: "Expedita perspiciatis",
-                        selected: false
-                    }, {
-                        index: 4,
-                        text: "Molestiae exercitationem",
+                        text: "Kraftverk",
                         selected: false
                     }]
                 }
