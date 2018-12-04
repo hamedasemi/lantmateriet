@@ -242,7 +242,7 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchHandler(e) {
-        let request = new Request("http://evry-lm-api.azurewebsites.net/api/area", {
+        let request = new Request("https://evry-lm-api.azurewebsites.net/api/area", {
             method: 'GET'
         })
         fetch(request)
