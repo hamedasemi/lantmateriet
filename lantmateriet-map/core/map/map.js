@@ -183,7 +183,7 @@ export default class AppMap extends PolymerElement {
                                 layer.setStyle({
                                     fillColor: 'red',
                                 })
-                                layer.bindPopup('<h1>'+feature.properties.description+'</h1><p>downlaod: <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">378_Bostäder_Videbacken_1_Plankarta</a></p>');
+                                layer.bindPopup('<h1>'+feature.properties.description+'</h1><p><a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">378_Bostäder_Videbacken_1_Plankarta</a></p>');
                             }
                         }
                     }).addTo(this.map)
