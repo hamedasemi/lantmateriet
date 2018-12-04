@@ -166,7 +166,6 @@ export default class AppMap extends PolymerElement {
             }
         }
     }
-
     addressObserver() {
         if (this.address) {
             if (!this.map.hasLayer(this.detailsLayer)) {
@@ -177,6 +176,14 @@ export default class AppMap extends PolymerElement {
                         style: {
                             fillColor: "orange",
                             color: "orange"
+                        },
+                        onEachFeature: (feature, layer) => {
+                            console.log(feature)
+                            if(feature.properties.description === 'Vidjan 3') {
+                                layer.setStyle({
+                                    fillColor: 'red',
+                                })
+                            }
                         }
                     }).addTo(this.map)
                 }, 1000);
