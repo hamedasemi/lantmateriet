@@ -29,6 +29,7 @@ export default class AppMap extends PolymerElement {
             // maxBoundsViscosity: 1.0
         }).setView([61.6794500443896, 16.375], 5)
 
+        this.map = map
         L.control.zoom({
             position: 'bottomright'
         }).addTo(map)
@@ -38,9 +39,9 @@ export default class AppMap extends PolymerElement {
         }).addTo(map)
 
 
-        let landscapesLayer = {};
-        let municipalitiesLayer = {};
-        let countryLayer = {};
+        this.landscapesLayer = {};
+        this.municipalitiesLayer = {};
+        this.countryLayer = {};
 
         fetch(new Request('lantmateriet-map/core/map/data/country.json'))
             .then(response => {
@@ -51,7 +52,7 @@ export default class AppMap extends PolymerElement {
                 }
             })
             .then(response => {
-                countryLayer = L.geoJSON(response, {
+                this.countryLayer = L.geoJSON(response, {
                     style: {
                         fillColor: "orange",
                         color: "orange"
@@ -70,7 +71,7 @@ export default class AppMap extends PolymerElement {
 
 
             if (1 < data.target._zoom && data.target._zoom <= 5) {
-                if (!map.hasLayer(countryLayer)) {
+                if (!map.hasLayer(this.countryLayer)) {
                     fetch(new Request('lantmateriet-map/core/map/data/country.json'))
                         .then(response => {
                             if (response.status === 200) {
@@ -80,7 +81,7 @@ export default class AppMap extends PolymerElement {
                             }
                         })
                         .then(response => {
-                            countryLayer = L.geoJSON(response, {
+                            this.countryLayer = L.geoJSON(response, {
                                 style: {
                                     fillColor: "orange",
                                     color: "orange"
@@ -93,10 +94,10 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
-                map.removeLayer(landscapesLayer)
-                map.removeLayer(municipalitiesLayer)
+                map.removeLayer(this.landscapesLayer)
+                map.removeLayer(this.municipalitiesLayer)
             } else if (5 < data.target._zoom && data.target._zoom <= 7) {
-                if (!map.hasLayer(landscapesLayer)) {
+                if (!map.hasLayer(this.landscapesLayer)) {
                     fetch(new Request('lantmateriet-map/core/map/data/landscapes.json'))
                         .then(response => {
                             if (response.status === 200) {
@@ -106,7 +107,7 @@ export default class AppMap extends PolymerElement {
                             }
                         })
                         .then(response => {
-                            landscapesLayer = L.geoJSON(response, {
+                            this.landscapesLayer = L.geoJSON(response, {
                                 style: {
                                     fillColor: "orange",
                                     color: "orange"
@@ -119,10 +120,10 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
-                map.removeLayer(countryLayer)
-                map.removeLayer(municipalitiesLayer)
+                map.removeLayer(this.countryLayer)
+                map.removeLayer(this.municipalitiesLayer)
             } else if (7 < data.target._zoom && data.target._zoom <= 18) {
-                if (!map.hasLayer(municipalitiesLayer)) {
+                if (!map.hasLayer(this.municipalitiesLayer)) {
                     fetch(new Request('lantmateriet-map/core/map/data/municipalities.json'))
                         .then(response => {
                             if (response.status === 200) {
@@ -132,7 +133,7 @@ export default class AppMap extends PolymerElement {
                             }
                         })
                         .then(response => {
-                            municipalitiesLayer = L.geoJSON(response, {
+                            this.municipalitiesLayer = L.geoJSON(response, {
                                 style: {
                                     fillColor: "orange",
                                     color: "orange"
@@ -145,20 +146,45 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
-                map.removeLayer(countryLayer)
-                map.removeLayer(landscapesLayer)
+                map.removeLayer(this.countryLayer)
+                map.removeLayer(this.landscapesLayer)
 
             } else {
-                map.removeLayer(landscapesLayer)
-                map.removeLayer(municipalitiesLayer)
-                map.removeLayer(countryLayer)
+                map.removeLayer(this.landscapesLayer)
+                map.removeLayer(this.municipalitiesLayer)
+                map.removeLayer(this.countryLayer)
             }
         })
         window.dispatchEvent(new Event('resize'))
     }
 
     static get properties() {
-        return {}
+        return {
+            address: {
+                type: Array,
+                observer: 'addressObserver'
+            }
+        }
+    }
+
+    addressObserver() {
+        if (this.address) {
+            if (!this.map.hasLayer(this.detailsLayer)) {
+                L.marker(this.address).addTo(this.map)
+                this.map.setView(this.address, 17)
+                setTimeout(() => {
+                    this.detailsLayer = L.geoJSON(this.dataGeoJson, {
+                        style: {
+                            fillColor: "orange",
+                            color: "orange"
+                        }
+                    }).addTo(this.map)
+                }, 1000);
+            }
+            this.map.removeLayer(this.landscapesLayer)
+            this.map.removeLayer(this.municipalitiesLayer)
+            this.map.removeLayer(this.countryLayer)
+        }
     }
 }
 
