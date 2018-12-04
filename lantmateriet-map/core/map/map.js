@@ -169,7 +169,7 @@ export default class AppMap extends PolymerElement {
     addressObserver() {
         if (this.address) {
             if (!this.map.hasLayer(this.detailsLayer)) {
-                L.marker(this.address).addTo(this.map)
+                L.marker(this.address).addTo(this.map).bindPopup('This is Denver, CO.')
                 this.map.setView(this.address, 17)
                 setTimeout(() => {
                     this.detailsLayer = L.geoJSON(this.dataGeoJson, {
@@ -179,10 +179,11 @@ export default class AppMap extends PolymerElement {
                         },
                         onEachFeature: (feature, layer) => {
                             console.log(feature)
-                            if(feature.properties.description === 'Vidjan 3') {
+                            if (feature.properties.description === 'Vidjan 3') {
                                 layer.setStyle({
                                     fillColor: 'red',
                                 })
+                                layer.bindPopup('<h1>'+feature.properties.description+'</h1><p>downlaod: <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">378_Bostäder_Videbacken_1_Plankarta</a></p>');
                             }
                         }
                     }).addTo(this.map)
