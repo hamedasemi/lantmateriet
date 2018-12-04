@@ -254,8 +254,7 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchHandler(e) {
-        let request = new Request("https://evry-lm-api.azurewebsites.net/api/area", {
-            method: 'GET'
+        let request = new Request("lantmateriet-map/core/map/data/Tyreso/Vidjan/index.json", {
         })
         fetch(request)
             .then((response) => {
