@@ -42,6 +42,7 @@ export default class LantmaterietMap extends PolymerElement {
         // Event listeners
         // ------------------------------------------------------------------------------------------------------------------------------------------
         this.addEventListener('app-menu-toggle', this.appMenuToggleHandler)
+        this.addEventListener('app-search', this.appSearchHandler)
 
 
         // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -115,7 +116,7 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-aside></app-aside>
                 <app-footer></app-footer>
             </app-menu>
-            <app-map></app-map>
+            <app-map address="[[state.address]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
             
 
             <noscript>Your browser does not support JavaScript!</noscript>
@@ -238,6 +239,23 @@ export default class LantmaterietMap extends PolymerElement {
     appMenuToggleHandler() {
         this.appMenuToggle = !this.appMenuToggle
         window.dispatchEvent(new Event('resize'))
+    }
+
+    appSearchHandler(e) {
+        let request = new Request("http://evry-lm-api.azurewebsites.net/api/area", {
+            method: 'GET'
+        })
+        fetch(request)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json()
+                }
+            })
+            .then((data) => {
+                console.log(data)
+                this.set('state.address', [59.2431705430855, 18.275679196128674])
+                this.set('state.dataGeoJson', data)
+            })
     }
 }
 
