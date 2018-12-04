@@ -1,4 +1,5 @@
 import { html, PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
+import { } from '../../../node_modules/@polymer/polymer/lib/elements/dom-if.js'
 
 export default class AppMenu extends PolymerElement {
 
@@ -63,13 +64,26 @@ export default class AppMenu extends PolymerElement {
                 
             </style>
             <app-toggle on-click="toggle">
-                <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path> -->
-                    <path d="M15.422 7.406l-4.594 4.594 4.594 4.594-1.406 1.406-6-6 6-6z"></path>
+                <dom-if if="[[!mode]]">
+                <template>     
+                    <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path d="M15.422 7.406l-4.594 4.594 4.594 4.594-1.406 1.406-6-6 6-6z"></path>
+                    </svg>
+                    <span>Dölj</span>
+            </template>     
+                </dom-if>
+                <dom-if if="[[mode]]">
+                <template>     
 
-                </svg>
+                    <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path>
+                    </svg>
+                    <span>Visa</span>
+                    </template>    
+                </dom-if>
                 
-                <span>Dölj</span>
+                
+                
             </app-toggle>
             <div>
                 <main>
@@ -85,11 +99,17 @@ export default class AppMenu extends PolymerElement {
     }
 
     toggle() {
+        this.mode = !this.mode
         this.dispatchEvent(new CustomEvent('app-menu-toggle', { bubbles: true, composed: true, detail: {} }))
     }
 
     static get properties() {
-        return {}
+        return {
+            mode: {
+                type: Boolean,
+                value: false
+            }
+        }
     }
 }
 
