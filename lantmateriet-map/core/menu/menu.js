@@ -13,6 +13,8 @@ export default class AppMenu extends PolymerElement {
                     grid-area: menu;
                     position: relative;
                     z-index: 10000;
+                    height: 100%;
+                    
                     /*box-shadow: 0px 0px 12px -5px;*/
                 }
                 
@@ -25,17 +27,17 @@ export default class AppMenu extends PolymerElement {
                     justify-content: center;
                     left: 100%;
                     top: 77px;
-                    width: 60px;
-                    height: 60px;
-                    background: orange;
-                    color: white;
+                    width: 8rem;
+                    height: 8rem;
+                    background: white;
+                    color: orange;
                     border-top-right-radius: 4px;
                     border-bottom-right-radius: 4px;
                 }
                 svg {
                     height: 50%;
                     width: 50%;
-                    fill: white;
+                    fill: currentColor;
 
                 }
                 div {
@@ -56,8 +58,11 @@ export default class AppMenu extends PolymerElement {
                 main {
                     overflow: auto;
                     display: block;
-                    height: 100vh;
-                    padding: 24px;
+                    padding: 4rem;
+                    display: flex;
+                    flex-shrink: 0;
+                    flex-direction: column;
+                    height: 100%;
                 }
 
 

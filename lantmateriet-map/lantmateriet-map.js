@@ -65,16 +65,16 @@ export default class LantmaterietMap extends PolymerElement {
             <style include="shared-style">
                 :host {
                     --baseline: 24px;
-                    --font-size: 16px;
+                    --font-size: 2rem;
                     --line-height: calc(var(--baseline) / var(--font-size));
                     
                     font-size: var(--font-size);
                     line-height: 1;
                     background: white;
                     display: grid;
-                    grid-template-areas: "menu map" "menu map";
-                    grid-template-columns: 30rem auto;
-                    grid-template-rows: auto;
+                    grid-template-areas: "menu map";
+                    grid-template-columns: 50rem auto;
+                    grid-template-rows: 100%;
                 }
 
                 :host([app-menu-toggle]) {
@@ -83,39 +83,29 @@ export default class LantmaterietMap extends PolymerElement {
             </style>
 
             <app-menu>
-                <app-logo></app-logo>
-                <app-line horizontal margin-top></app-line>
-                <app-title>
-                    <p>Filtrera sökning</p>
-                    <p>Vad vill du se?</p>
-                </app-title>
-                <app-line horizontal margin-bottom></app-line>
+                
                 <app-search></app-search>
-                <app-line horizontal margin-bottom margin-top></app-line>
                 <app-filters>
                     <app-select options="[[state.filter]]" placeholder="Välj närmiljö"></app-select>
                     <app-select options="[[state.filter2]]" placeholder="Välj typ av mark"></app-select>
                     <app-select options="[[state.filter3]]" placeholder="Välj anslutningar"></app-select>
-                    <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten byggnadshöjd</app-text>
                     <app-text margin-bottom center>0 m - 100 m </app-text>
                     <app-input-range min="0" max="100"></app-input-range>
-                    <app-line horizontal margin-bottom margin-top></app-line>
                     <app-text margin-bottom>Tillåten nockhöjd</app-text>
                     <app-text margin-bottom center>0 m - 100 m </app-text>
                     <app-input-range min="0" max="100"></app-input-range>
-                    <app-line horizontal margin-bottom margin-top></app-line>
                     <app-text margin-bottom>Tillåten byggnadsarea</app-text>
                     <app-text margin-bottom center>0 kvm - 500+ kvm </app-text>
                     <app-input-range min="0" max="500"></app-input-range>
-                    <app-line horizontal margin-bottom margin-top></app-line>
                     <app-text margin-bottom>Tillåten tomtarea</app-text>
                     <app-text margin-bottom center>0 kvm - 10000+ kvm </app-text>
                     <app-input-range min="0" max="10000"></app-input-range>
-                    <app-line horizontal margin-bottom margin-top></app-line>
                 </app-filters>
+                                                                                        
                 <app-aside></app-aside>
                 <app-footer></app-footer>
+                <app-logo></app-logo>
             </app-menu>
             <app-map address="[[state.address]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
             

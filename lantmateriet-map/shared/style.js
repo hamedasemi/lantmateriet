@@ -19,19 +19,24 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
       }
 
       .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-bar a.leaflet-disabled {
-        border-radius: 4px;
+        border-radius: .4rem;
         -webkit-tap-highlight-color: transparent;
-        background: orange;
-        color: white;
+        background: white;
+        color: orange;
+        border: 0;
+        
       }
 
       .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover, leaflet-disabled:hover {
-        background: orange;
-        color: white;
+        background: white;
+        color: orange;
+        border: 0;
+        
       }
 
       .leaflet-touch .leaflet-bar a:last-child {
         margin-top: 10px;
+        box-shadow: none;
       }
     </style>
   </template>

@@ -10,23 +10,24 @@ export default class AppSearch extends PolymerElement {
                     display: block;
                     grid-area: search;
                     position: relative;
+                    margin-top: 4rem;
+                    margin-bottom: 4rem;
                 }
 
                 input {
+                    font-size: 2.4rem;
+                    padding: 2rem;
                     width: 100%;
-                    height: 44px;
                     border: 1px solid;
                     border-radius: 4px;
-                    padding: 11px;
                     font-size: inherit;
                     outline: none;
                 }
 
                 svg {
                     position: absolute;
-                    right: 12px;
-                    top: 12px;
-                    
+                    right: 1.5em;
+                    top: 1.2em;
                 }
 
             </style>

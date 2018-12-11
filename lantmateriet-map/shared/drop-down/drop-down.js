@@ -83,11 +83,6 @@ export default class AppDropDown extends PolymerElement {
                     </template>
                 </dom-repeat>
                 </div>
-                <!-- <dom-if if="[[getSelectedStats(options)]]">
-                    <template>
-                        [[getSelectedStats(options)]] vald
-                    </template>
-                </dom-if> -->
                 <app-icon icon="arrow-down"></app-icon>
             </div>
            
