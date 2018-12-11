@@ -13,7 +13,7 @@ import { } from './core/user-agent/user-agent.js'
 
 import { } from './core/aside/aside.js'
 import { } from './core/details/details.js'
-import { } from './core/filter/filter.js'
+import { } from './core/filters/filters.js'
 import { } from './core/footer/footer.js'
 import { } from './core/header/header.js'
 import { } from './core/logo/logo.js'
