@@ -1,6 +1,6 @@
 import { html, PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
 
-export default class AppFilter extends PolymerElement {
+export default class AppFilters extends PolymerElement {
 
     static get template() {
         return html`
@@ -27,4 +27,4 @@ export default class AppFilter extends PolymerElement {
     }
 }
 
-window.customElements.define('app-filter', AppFilter)
+window.customElements.define('app-filters', AppFilters)

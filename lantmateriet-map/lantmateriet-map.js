@@ -91,7 +91,7 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-line horizontal margin-bottom></app-line>
                 <app-search></app-search>
                 <app-line horizontal margin-bottom margin-top></app-line>
-                <app-filter>
+                <app-filters>
                     <app-drop-down options="[[state.filter]]" placeholder="Välj närmiljö"></app-drop-down>
                     <app-drop-down options="[[state.filter2]]" placeholder="Välj typ av mark"></app-drop-down>
                     <app-drop-down options="[[state.filter3]]" placeholder="Välj anslutningar"></app-drop-down>
@@ -112,7 +112,7 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-text margin-bottom center>0 kvm - 10000+ kvm </app-text>
                     <app-input-range min="0" max="10000"></app-input-range>
                     <app-line horizontal margin-bottom margin-top></app-line>
-                </app-filter>
+                </app-filters>
                 <app-aside></app-aside>
                 <app-footer></app-footer>
             </app-menu>
