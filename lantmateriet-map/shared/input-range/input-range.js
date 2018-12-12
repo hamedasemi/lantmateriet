@@ -46,7 +46,7 @@ export default class AppInputRange extends PolymerElement {
 
                 [min-handle], [max-handle] {
                     pointer-events: none;
-                    background-color: #f7f7f7;
+                    background-color: var(--basic-color);
                     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
                     position: absolute;
                     width: 24px;
