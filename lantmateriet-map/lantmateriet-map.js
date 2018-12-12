@@ -85,7 +85,7 @@ export default class LantmaterietMap extends PolymerElement {
             </style>
 
             <app-menu>
-                
+                <app-logo></app-logo>
                 <app-search></app-search>
                 <app-filters>
                     <app-select options="[[state.filter]]" placeholder="Välj närmiljö"></app-select>
@@ -103,15 +103,12 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-text margin-bottom>Tillåten tomtarea</app-text>
                     <app-text margin-bottom center>0 kvm - 10000+ kvm </app-text>
                     <app-input-range min="0" max="10000"></app-input-range>
-                </app-filters>
-                                                                                        
+                </app-filters>                                                                
                 <app-aside></app-aside>
                 <app-footer></app-footer>
-                <app-logo></app-logo>
             </app-menu>
             <app-map address="[[state.address]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
             
-
             <noscript>Your browser does not support JavaScript!</noscript>
         `
     }
