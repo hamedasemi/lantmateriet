@@ -30,7 +30,7 @@ export default class AppMenu extends PolymerElement {
                     width: 8rem;
                     height: 8rem;
                     background: white;
-                    color: orange;
+                    color: var(--accent-color);
                     border-top-right-radius: 4px;
                     border-bottom-right-radius: 4px;
                 }

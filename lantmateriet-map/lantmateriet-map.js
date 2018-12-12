@@ -67,9 +67,9 @@ export default class LantmaterietMap extends PolymerElement {
                     --baseline: 24px;
                     --font-size: 2rem;
                     --line-height: calc(var(--baseline) / var(--font-size));
-                    --accent-color: darkorange;
+                    --accent-color: #e67e22;
                     --basic-color: #333;
-                    
+
                     font-size: var(--font-size);
                     line-height: 1;
                     background: white;

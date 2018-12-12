@@ -22,14 +22,14 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
         border-radius: .4rem;
         -webkit-tap-highlight-color: transparent;
         background: white;
-        color: orange;
+        color: var(--accent-color);
         border: 0;
         
       }
 
       .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover, leaflet-disabled:hover {
         background: white;
-        color: orange;
+        color: var(--accent-color);
         border: 0;
         
       }

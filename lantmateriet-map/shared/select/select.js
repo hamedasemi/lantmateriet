@@ -70,7 +70,7 @@ export default class AppSelect extends PolymerElement {
 
                 [button] {
                     padding: 2rem;
-                    background: black;
+                    background: var(--basic-color);
                     color: white;
                     border-radius: .4rem;
                 }
@@ -80,6 +80,8 @@ export default class AppSelect extends PolymerElement {
                     height: 4rem;
                     flex-shrink: 0;
                     pointer-events: none;
+                    color: var(--basic-color);
+                    fill: currentColor;
                 }
 
                 [options] svg {
