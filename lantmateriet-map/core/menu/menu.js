@@ -14,13 +14,10 @@ export default class AppMenu extends PolymerElement {
                     position: relative;
                     z-index: 10000;
                     height: 100%;
-                    
-                    /*box-shadow: 0px 0px 12px -5px;*/
                 }
                 
                 app-toggle {
                     position: absolute;
-                    /*box-shadow: 5px 0px 7px -6px;*/
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -29,8 +26,8 @@ export default class AppMenu extends PolymerElement {
                     top: 77px;
                     width: 8rem;
                     height: 8rem;
-                    background: white;
-                    color: var(--accent-color);
+                    background: var(--accent-color);
+                    color: white;
                     border-top-right-radius: 4px;
                     border-bottom-right-radius: 4px;
                 }
@@ -38,7 +35,11 @@ export default class AppMenu extends PolymerElement {
                     height: 50%;
                     width: 50%;
                     fill: currentColor;
-
+                    transform: rotateZ(90deg);
+                    margin-bottom: .5rem;
+                }
+                :host([mode]) svg {
+                    transform: rotateZ(-90deg);
                 }
                 div {
                     height: 100%;
@@ -71,17 +72,16 @@ export default class AppMenu extends PolymerElement {
             <app-toggle on-click="toggle">
                 <dom-if if="[[!mode]]">
                 <template>     
-                    <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path d="M15.422 7.406l-4.594 4.594 4.594 4.594-1.406 1.406-6-6 6-6z"></path>
+                    <svg viewBox="0 0 60 35">
+                        <path d="M57.236 6.4a3.236 3.236 0 0 0 0-4.582 3.2 3.2 0 0 0-4.509 0L29.091 25.455 5.455 1.818a3.2 3.2 0 0 0-4.564 0A3.164 3.164 0 0 0 0 4.11 3.2 3.2 0 0 0 .945 6.4l28.146 28.145L57.236 6.4z"/>
                     </svg>
                     <span>Dölj</span>
             </template>     
                 </dom-if>
                 <dom-if if="[[mode]]">
                 <template>     
-
-                    <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path d="M9.984 6l6 6-6 6-1.406-1.406 4.594-4.594-4.594-4.594z"></path>
+                    <svg viewBox="0 0 60 35">
+                        <path d="M57.236 6.4a3.236 3.236 0 0 0 0-4.582 3.2 3.2 0 0 0-4.509 0L29.091 25.455 5.455 1.818a3.2 3.2 0 0 0-4.564 0A3.164 3.164 0 0 0 0 4.11 3.2 3.2 0 0 0 .945 6.4l28.146 28.145L57.236 6.4z"/>
                     </svg>
                     <span>Visa</span>
                     </template>    
@@ -112,7 +112,8 @@ export default class AppMenu extends PolymerElement {
         return {
             mode: {
                 type: Boolean,
-                value: false
+                value: false,
+                reflectToAttribute: true
             }
         }
     }
