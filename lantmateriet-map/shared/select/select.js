@@ -32,6 +32,7 @@ export default class AppSelect extends PolymerElement {
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    
                 }
 
                 [options] {
@@ -92,6 +93,9 @@ export default class AppSelect extends PolymerElement {
                     display: none;
                 }
                 
+                [selected] [selected-nest] span:not(:first-of-type)::before {
+                    content: ', ';
+                }
                 
                 
 
@@ -103,16 +107,16 @@ export default class AppSelect extends PolymerElement {
                         </template>
                     </dom-if>
                     <div selected-nest>
-                <dom-repeat items="[[options]]" as="option">
-                    <template>      
-                        <dom-if if="[[option.selected]]">
-                            <template>
-                                <span>[[option.text]]</span>
+                        <dom-repeat items="[[options]]" as="option">
+                            <template>      
+                                <dom-if if="[[option.selected]]">
+                                    <template>
+                                        <span>[[option.text]]</span>
+                                    </template>
+                                </dom-if>
                             </template>
-                        </dom-if>
-                    </template>
-                </dom-repeat>
-                </div>
+                        </dom-repeat>
+                    </div>
                 <svg viewBox="0 0 60 35">
                     <path fill="#333" fill-rule="evenodd" d="M57.236 6.4a3.236 3.236 0 0 0 0-4.582 3.2 3.2 0 0 0-4.509 0L29.091 25.455 5.455 1.818a3.2 3.2 0 0 0-4.564 0A3.164 3.164 0 0 0 0 4.11 3.2 3.2 0 0 0 .945 6.4l28.146 28.145L57.236 6.4z"/>
                 </svg>
