@@ -80,6 +80,21 @@ export default class LantmaterietMap extends PolymerElement {
                     grid-template-rows: 100%;
                 }
 
+                @media only screen and (max-width: 1200px) {
+                    html {
+                        font-size: 50%;
+                    }
+                    :host {
+                        grid-template-columns: 35rem auto;
+                    }
+                }
+
+                @media only screen and (max-width: 768px) {
+                    :host { 
+                        grid-template-columns: 30rem auto;
+                    }
+                }
+
                 :host([app-menu-toggle]) {
                     grid-template-columns: 0rem auto;
                 }

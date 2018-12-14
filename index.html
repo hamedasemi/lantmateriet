@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <style>
         html { font-size: 62.5%; font-family: Tahoma, sans-serif; }
+        @media only screen and (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            html {
+                font-size: 45%;
+            }
+        }
         html, body { height: 100%; }
         body {
             margin: 0;
@@ -22,7 +33,7 @@
 </head>
 
 <body>
-     <script>
+    <script>
         if (window.customElements) {
             window.customElements.forcePolyfill = true;
         }

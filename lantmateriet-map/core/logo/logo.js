@@ -14,6 +14,7 @@ export default class AppLogo extends PolymerElement {
                 
                 svg {
                     height: 100%;
+                    width: 100%;
                 }
 
             </style>
