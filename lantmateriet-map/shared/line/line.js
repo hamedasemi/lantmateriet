@@ -9,6 +9,7 @@ export default class AppLine extends PolymerElement {
                 :host {
                     display: block;
                     background: #dfe1e6;
+                    flex-shrink: 0;
                 }
 
                 :host([horizontal]) {

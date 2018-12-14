@@ -12,13 +12,13 @@ import { } from './shared/style.js'
 import { } from './core/user-agent/user-agent.js'
 
 import { } from './core/aside/aside.js'
-import { } from './core/details/details.js'
 import { } from './core/filters/filters.js'
 import { } from './core/footer/footer.js'
 import { } from './core/header/header.js'
 import { } from './core/logo/logo.js'
 import { } from './core/map/map.js'
 import { } from './core/menu/menu.js'
+import { } from './core/details/details.js'
 import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 import { } from './core/title/title.js'
@@ -43,6 +43,7 @@ export default class LantmaterietMap extends PolymerElement {
         // Event listeners
         // ------------------------------------------------------------------------------------------------------------------------------------------
         this.addEventListener('app-menu-toggle', this.appMenuToggleHandler)
+        this.addEventListener('app-details-toggle', this.appDetailsToggleHandler)
         this.addEventListener('app-search', this.appSearchHandler)
         this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
 
@@ -75,9 +76,10 @@ export default class LantmaterietMap extends PolymerElement {
                     line-height: 1;
                     background: white;
                     display: grid;
-                    grid-template-areas: "menu map";
-                    grid-template-columns: 50rem auto;
+                    grid-template-areas: "menu map details";
+                    grid-template-columns: 50rem auto 50rem;
                     grid-template-rows: 100%;
+                    border-top: 9px solid var(--accent-color);
                 }
 
                 @media only screen and (max-width: 1200px) {
@@ -95,8 +97,15 @@ export default class LantmaterietMap extends PolymerElement {
                     }
                 }
 
-                :host([app-menu-toggle]) {
-                    grid-template-columns: 0rem auto;
+                :host([app-menu-toggle]:not([app-details-toggle])) {
+                    grid-template-columns: 0 auto 50rem;
+                }
+                :host([app-details-toggle]:not([app-menu-toggle])) {
+                    grid-template-columns: 50rem auto 0;
+                }
+
+                :host([app-menu-toggle][app-details-toggle]) {
+                    grid-template-columns: 0 auto 0;
                 }
             </style>
 
@@ -133,7 +142,10 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-footer></app-footer>
             </app-menu>
             <app-map address="[[state.address]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
-            
+            <app-details>
+                
+            </app-details>
+
             <noscript>Your browser does not support JavaScript!</noscript>
         `
     }
@@ -161,6 +173,11 @@ export default class LantmaterietMap extends PolymerElement {
                 reflectToAttribute: true
             },
             appMenuToggle: {
+                value: false,
+                type: Boolean,
+                reflectToAttribute: true
+            },
+            appDetailsToggle: {
                 value: false,
                 type: Boolean,
                 reflectToAttribute: true
@@ -266,6 +283,11 @@ export default class LantmaterietMap extends PolymerElement {
     // ------------------------------------------------------------------------------------------------------------------------------------------
     appMenuToggleHandler() {
         this.appMenuToggle = !this.appMenuToggle
+        window.dispatchEvent(new Event('resize'))
+    }
+
+    appDetailsToggleHandler() {
+        this.appDetailsToggle = !this.appDetailsToggle
         window.dispatchEvent(new Event('resize'))
     }
 
