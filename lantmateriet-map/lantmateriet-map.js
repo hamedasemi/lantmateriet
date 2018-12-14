@@ -44,6 +44,7 @@ export default class LantmaterietMap extends PolymerElement {
         // ------------------------------------------------------------------------------------------------------------------------------------------
         this.addEventListener('app-menu-toggle', this.appMenuToggleHandler)
         this.addEventListener('app-search', this.appSearchHandler)
+        this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
 
 
         // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -87,7 +88,7 @@ export default class LantmaterietMap extends PolymerElement {
             <app-menu>
                 <app-logo></app-logo>
                 <app-line horizontal margin-top></app-line>
-                <app-search></app-search>
+                <app-search autocomplete-suggestions="[[state.autocompleteSuggestions]]"></app-search>
                 <app-filters>
                     <app-line horizontal margin-bottom></app-line>
                     <app-select options="[[state.filter]]" placeholder="Välj närmiljö"></app-select>
@@ -149,6 +150,7 @@ export default class LantmaterietMap extends PolymerElement {
             state: {
                 type: Object,
                 value: {
+                    autocompleteSuggestions: [], 
                     filter: [{
                         index: 0,
                         text: "Motorvägar",
@@ -262,6 +264,20 @@ export default class LantmaterietMap extends PolymerElement {
                 console.log(data)
                 this.set('state.address', [59.2431705430855, 18.275679196128674])
                 this.set('state.dataGeoJson', data)
+            })
+    }
+
+    appSearchAutocompleteHandler(event) {
+        let request = new Request(`http://evry-lm-api.test.dropit.se/api/area/Find?type=municipality&name=${event.detail.value}`, {
+        })
+        fetch(request)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json()
+                }
+            })
+            .then((data) => {
+                this.set('state.autocompleteSuggestions', data)
             })
     }
 }
