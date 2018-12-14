@@ -11,7 +11,7 @@ export default class AppText extends PolymerElement {
                 }
 
                 :host([margin-bottom]) {
-                    margin-bottom: 24px;
+                    margin-bottom: 2rem;
                 }
 
                 :host([center]) {

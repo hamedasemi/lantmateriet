@@ -23,13 +23,13 @@ export default class AppMenu extends PolymerElement {
                     align-items: center;
                     justify-content: center;
                     left: 100%;
-                    top: 77px;
+                    top: 7.7rem;
                     width: 8rem;
                     height: 8rem;
                     background: var(--accent-color);
                     color: white;
-                    border-top-right-radius: 4px;
-                    border-bottom-right-radius: 4px;
+                    border-top-right-radius: .4rem;
+                    border-bottom-right-radius: .4rem;
                 }
                 svg {
                     height: 50%;

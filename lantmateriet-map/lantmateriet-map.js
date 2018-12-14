@@ -102,6 +102,9 @@ export default class LantmaterietMap extends PolymerElement {
 
             <app-menu>
                 <app-logo></app-logo>
+                <app-line horizontal margin-top margin-bottom></app-line>
+                <p>Filtrera sökning</p>
+                <h4>Vad vill du se?</h4>
                 <app-line horizontal margin-top></app-line>
                 <app-search autocomplete-suggestions="[[state.autocompleteSuggestions]]"></app-search>
                 <app-filters>
@@ -292,7 +295,7 @@ export default class LantmaterietMap extends PolymerElement {
                 }
             })
             .then((data) => {
-                this.set('state.autocompleteSuggestions', data)
+                this.set('state.autocompleteSuggestions', data.json)
             })
     }
 }

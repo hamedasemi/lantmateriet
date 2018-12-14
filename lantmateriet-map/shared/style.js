@@ -35,7 +35,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
       }
 
       .leaflet-touch .leaflet-bar a:last-child {
-        margin-top: 10px;
+        margin-top: 1rem;
         box-shadow: none;
       }
     </style>

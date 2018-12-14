@@ -8,10 +8,10 @@ export default class AppInputRange extends PolymerElement {
                 :host {
                     display: block;
                     width: 100%;
-                    height: 24px;
+                    height: 2.4rem;
                     user-select: none;
                     position: relative;
-                    margin-bottom: 11px;
+                    margin-bottom: 1.1rem;
                 }
 
                 [track] {
@@ -24,7 +24,7 @@ export default class AppInputRange extends PolymerElement {
                     position: absolute;
                     background: #b1b1b1;
                     width: 100%;
-                    height: 5px;
+                    height: .5rem;
                     top: 0;
                     right: 0;
                     bottom: 0;
@@ -36,7 +36,7 @@ export default class AppInputRange extends PolymerElement {
                     position: absolute;
                     background: #5c5c5c;
                     width: 100%;
-                    height: 5px;
+                    height: .5rem;
                     top: 0;
                     right: 0;
                     bottom: 0;
@@ -47,10 +47,10 @@ export default class AppInputRange extends PolymerElement {
                 [min-handle], [max-handle] {
                     pointer-events: none;
                     background-color: var(--basic-color);
-                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+                    box-shadow: 0 .2rem .5rem 0 rgba(0, 0, 0, 0.5);
                     position: absolute;
-                    width: 24px;
-                    height: 24px;
+                    width: 2.4rem;
+                    height: 2.4rem;
                     border-radius: 50%;
                     top: 0;
                 }

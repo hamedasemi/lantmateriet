@@ -13,20 +13,20 @@ export default class AppLine extends PolymerElement {
 
                 :host([horizontal]) {
                     width: 100%;
-                    height: 2px;
+                    height: .2rem;
                 }
 
                 :host([vertical]) {
                     height: 100%;
-                    width: 2px;
+                    width: .2rem;
                 }
 
                 :host([margin-bottom]) {
-                    margin-bottom: 24px;
+                    margin-bottom: 2rem;
                 }
 
                 :host([margin-top]) {
-                    margin-top: 24px;
+                    margin-top: 2rem;
                 }
 
             </style>

@@ -13,7 +13,7 @@ export default class AppSelect extends PolymerElement {
                 :host {
                     display: block;
                     position: relative;
-                    margin-bottom: 24px;
+                    margin-bottom: 2rem;
                 }
 
                 :host > [selected] {
@@ -21,7 +21,7 @@ export default class AppSelect extends PolymerElement {
                     display: flex;
                     justify-content: space-between;
                     border: 1px solid black;
-                    border-radius: 4px;
+                    border-radius: .4rem;
                     padding: 2rem;
                 }
 
@@ -38,7 +38,7 @@ export default class AppSelect extends PolymerElement {
                     z-index: 1;
                     display: none;
                     background-color: #f8f8f8;
-                    padding: 11px;
+                    padding: 1rem;
                     width: 100%;
                     border: 1px solid black;
                     border-top: 0;

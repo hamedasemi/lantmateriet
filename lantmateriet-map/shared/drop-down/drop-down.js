@@ -13,22 +13,22 @@ export default class AppDropDown extends PolymerElement {
                 :host {
                     display: block;
                     position: relative;
-                    margin-bottom: 24px;
+                    margin-bottom: 2rem;
                 }
 
                 app-icon {
-                    width: 16px;
-                    height: 16px;
+                    width: 1.6rem;
+                    height: 1.6rem;
                 }
                 
                 :host > [selected] {
                     background-color: #f8f8f8;
-                    padding: 11px;
+                    padding: 1.1rem;
                     display: flex;
                     justify-content: space-between;
                     border: 1px solid black;
-                    border-top-right-radius: 4px;
-                    border-top-left-radius: 4px;
+                    border-top-right-radius: .4rem;
+                    border-top-left-radius: .4rem;
                 }
                 :host [selected-nest] {
                     white-space: nowrap;
@@ -41,9 +41,9 @@ export default class AppDropDown extends PolymerElement {
                     display: none;
                     position: absolute;
                     background-color: #f8f8f8;
-                    padding: 11px;
+                    padding: 1.1rem;
                     width: 100%;
-                    box-shadow: 0px 5px 17px -5px;
+                    box-shadow: 0px 5px 1.7rem -.5rem;
                     border: 1px solid black;
                 }
 
@@ -61,7 +61,7 @@ export default class AppDropDown extends PolymerElement {
                 }
 
                 app-icon {
-                    min-width: 16px;
+                    min-width: 1.6rem;
                 }
             </style>
  

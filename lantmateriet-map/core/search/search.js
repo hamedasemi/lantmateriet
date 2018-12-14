@@ -21,7 +21,7 @@ export default class AppSearch extends PolymerElement {
                     padding: 2rem;
                     width: 100%;
                     border: 1px solid;
-                    border-radius: 4px;
+                    border-radius: .4rem;
                     font-size: inherit;
                     outline: none;
                 }
