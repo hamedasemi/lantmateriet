@@ -47,6 +47,8 @@ export default class LantmaterietMap extends PolymerElement {
         this.addEventListener('app-search', this.appSearchHandler)
         this.addEventListener('app-fetch-details-plan', this.appFetchDetailsPlanHandler)
         this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
+        this.addEventListener('app-input-range-min', this.appInputRangeMinHandler)
+        this.addEventListener('app-input-range-max', this.appInputRangeMaxHandler)
 
 
         // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -109,7 +111,7 @@ export default class LantmaterietMap extends PolymerElement {
                     grid-template-columns: 0 auto 0;
                 }
             </style>
-
+            
             <app-menu>
                 <app-logo></app-logo>
                 <app-line horizontal margin-top margin-bottom></app-line>
@@ -124,20 +126,20 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-select options="[[state.filter3]]" placeholder="Välj anslutningar"></app-select>
                     <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten byggnadshöjd</app-text>
-                    <app-text margin-bottom center>0 m - 100 m </app-text>
-                    <app-input-range min="0" max="100"></app-input-range>
+                    <app-text margin-bottom center>[[state.permittedBuildingHeightMin]] m - [[state.permittedBuildingHeightMax]] m </app-text>
+                    <app-input-range min="0" max="100" name="permittedBuildingHeight"></app-input-range>
                     <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten nockhöjd</app-text>
-                    <app-text margin-bottom center>0 m - 100 m </app-text>
-                    <app-input-range min="0" max="100"></app-input-range>
+                    <app-text margin-bottom center>[[state.allowableNockHeightMin]] m - [[state.allowableNockHeightMax]] m </app-text>
+                    <app-input-range min="0" max="100" name="allowableNockHeight"></app-input-range>
                     <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten byggnadsarea</app-text>
-                    <app-text margin-bottom center>0 kvm - 500+ kvm </app-text>
-                    <app-input-range min="0" max="500"></app-input-range>
+                    <app-text margin-bottom center>[[state.allowableBuildingAreaMin]] kvm - [[state.allowableBuildingAreaMax]]+ kvm </app-text>
+                    <app-input-range min="0" max="500" name="allowableBuildingArea"></app-input-range>
                     <app-line horizontal margin-bottom></app-line>
                     <app-text margin-bottom>Tillåten tomtarea</app-text>
-                    <app-text margin-bottom center>0 kvm - 10000+ kvm </app-text>
-                    <app-input-range min="0" max="10000"></app-input-range>
+                    <app-text margin-bottom center>[[state.allowableLandAreaMin]] kvm - [[state.allowableLandAreaMax]]+ kvm </app-text>
+                    <app-input-range min="0" max="10000" name="allowableLandArea"></app-input-range>
                 </app-filters>                                                                
                 <app-aside></app-aside>
                 <app-footer></app-footer>
@@ -179,7 +181,7 @@ export default class LantmaterietMap extends PolymerElement {
                 reflectToAttribute: true
             },
             appDetailsToggle: {
-                value: false,
+                value: true,
                 type: Boolean,
                 reflectToAttribute: true
             },
@@ -187,6 +189,14 @@ export default class LantmaterietMap extends PolymerElement {
                 type: Object,
                 value: {
                     autocompleteSuggestions: [],
+                    permittedBuildingHeightMin: 0,
+                    permittedBuildingHeightMax: 100,
+                    allowableNockHeightMin: 0,
+                    allowableNockHeightMax: 100,
+                    allowableBuildingAreaMin: 0,
+                    allowableBuildingAreaMax: 500,
+                    allowableLandAreaMin: 0,
+                    allowableLandAreaMax: 10000,
                     filter: [{
                         index: 0,
                         text: "Motorvägar",
@@ -322,6 +332,15 @@ export default class LantmaterietMap extends PolymerElement {
             .then((data) => {
                 this.set('state.autocompleteSuggestions', data.json)
             })
+    }
+
+    appInputRangeMinHandler(event) {
+        console.log(event.detail.name)
+        this.set(`state.${event.detail.name}Min`, event.detail.value)
+    }
+
+    appInputRangeMaxHandler() {
+        this.set(`state.${event.detail.name}Max`, event.detail.value)
     }
 }
 

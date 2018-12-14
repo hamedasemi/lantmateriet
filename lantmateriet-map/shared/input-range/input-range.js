@@ -91,6 +91,9 @@ export default class AppInputRange extends PolymerElement {
             },
             max: {
                 type: Number
+            },
+            name: {
+                type: String
             }
         }
     }
@@ -130,14 +133,15 @@ export default class AppInputRange extends PolymerElement {
             this.highlight.style.width = Math.abs(offsetX - this.maxHandle.offsetLeft - this.maxHandle.clientWidth) + "px"
             this.minHandle.style.left = offsetX + "px"
             this.minValue = Math.round(((this.minValue - (this.minHandle.clientWidth / 2)) / this.clientWidth) * this.max)
+            this.dispatchEvent(new CustomEvent('app-input-range-min', { bubbles: true, composed: true, detail: { name: this.name, value: this.minValue } }))
         } else {
             this.maxValue = offsetX + (this.maxHandle.clientWidth / 2)
             this.highlight.style.width = Math.abs(offsetX - this.minHandle.offsetLeft + this.minHandle.clientWidth) + "px"
             this.maxHandle.style.left = offsetX + "px"
             this.maxValue = Math.round(((this.maxValue + (this.minHandle.clientWidth / 2)) / this.clientWidth) * this.max)
+            this.dispatchEvent(new CustomEvent('app-input-range-max', { bubbles: true, composed: true, detail: { name: this.name, value: this.maxValue } }))
         }
 
-        // this.dispatchEvent(new CustomEvent('max-value-change', { bubbles: true, composed: true, detail: { target: event.target.href } }))
     }
 
     mouseup() {
