@@ -171,6 +171,7 @@ export default class AppMap extends PolymerElement {
             if (!this.map.hasLayer(this.detailsLayer)) {
                 L.marker(this.address).addTo(this.map).bindPopup('This is Denver, CO.')
                 this.map.setView(this.address, 17)
+                this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: {lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng} }))
                 setTimeout(() => {
                     this.detailsLayer = L.geoJSON(this.dataGeoJson, {
                         style: {

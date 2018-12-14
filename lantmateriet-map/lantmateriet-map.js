@@ -45,6 +45,7 @@ export default class LantmaterietMap extends PolymerElement {
         this.addEventListener('app-menu-toggle', this.appMenuToggleHandler)
         this.addEventListener('app-details-toggle', this.appDetailsToggleHandler)
         this.addEventListener('app-search', this.appSearchHandler)
+        this.addEventListener('app-fetch-details-plan', this.appFetchDetailsPlanHandler)
         this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
 
 
@@ -185,7 +186,7 @@ export default class LantmaterietMap extends PolymerElement {
             state: {
                 type: Object,
                 value: {
-                    autocompleteSuggestions: [], 
+                    autocompleteSuggestions: [],
                     filter: [{
                         index: 0,
                         text: "Motorvägar",
@@ -291,8 +292,8 @@ export default class LantmaterietMap extends PolymerElement {
         window.dispatchEvent(new Event('resize'))
     }
 
-    appSearchHandler(e) {
-        let request = new Request("lantmateriet-map/core/map/data/Tyreso/Vidjan/index.json", {
+    appFetchDetailsPlanHandler(e) {
+        let request = new Request(`http://evry-lm-api.test.dropit.se/api/detail/search?lat1=${e.detail.lat1}&long1=${e.detail.long1}&lat2=${e.detail.lat2}&long2=${e.detail.long2}`, {
         })
         fetch(request)
             .then((response) => {
@@ -301,10 +302,12 @@ export default class LantmaterietMap extends PolymerElement {
                 }
             })
             .then((data) => {
-                console.log(data)
-                this.set('state.address', [59.2431705430855, 18.275679196128674])
                 this.set('state.dataGeoJson', data)
             })
+    }
+
+    appSearchHandler() {
+        this.set('state.address', [59.2431705430855, 18.275679196128674])
     }
 
     appSearchAutocompleteHandler(event) {
