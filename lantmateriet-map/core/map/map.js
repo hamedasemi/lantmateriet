@@ -168,10 +168,32 @@ export default class AppMap extends PolymerElement {
     }
     addressObserver() {
         if (this.address) {
-            if (!this.map.hasLayer(this.detailsLayer)) {
-                L.marker(this.address).addTo(this.map).bindPopup('This is Denver, CO.')
-                this.map.setView(this.address, 17)
-                this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: {lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng} }))
+            if (!this.map.hasLayer(this.detailLayer)) {
+                // L.marker(this.address).addTo(this.map).bindPopup('This is Denver, CO.')
+                
+                fetch(new Request(`https://evry-lm-api.test.dropit.se/api/detail/FindItem?type=detail&id=32`))
+                    .then(response => {
+                        if (response.status === 200) {
+                            return response.json()
+                        } else {
+                            throw new Error('Something went wrong on api server!')
+                        }
+                    })
+                    .then(response => {
+                        console.log(1414)
+                        this.detailLayer = L.geoJSON(response.json, {
+                            style: {
+                                fillColor: "black",
+                                color: "black"
+                            }
+                        }).addTo(this.map)
+                        this.map.fitBounds(this.detailLayer.getBounds())
+                        setTimeout(() => {
+                            this.detailLayer.bringToFront()
+                        }, 1200);
+                        
+                    })
+                this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: { lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng } }))
                 setTimeout(() => {
                     this.detailsLayer = L.geoJSON(this.dataGeoJson, {
                         style: {
@@ -184,7 +206,7 @@ export default class AppMap extends PolymerElement {
                                 layer.setStyle({
                                     fillColor: 'red',
                                 })
-                                layer.bindPopup('<h1>'+feature.properties.description+', Videbacken 1</h1><p>Berörd detaljplan: 378 <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">Plankarta</a></p>');
+                                layer.bindPopup('<h1>' + feature.properties.description + ', Videbacken 1</h1><p>Berörd detaljplan: 378 <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">Plankarta</a></p>');
                             }
                         }
                     }).addTo(this.map)
