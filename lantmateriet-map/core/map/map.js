@@ -100,6 +100,7 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
+                map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.landscapesLayer)
                 map.removeLayer(this.municipalitiesLayer)
@@ -127,6 +128,7 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
+                map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.countryLayer)
                 map.removeLayer(this.municipalitiesLayer)
@@ -154,6 +156,7 @@ export default class AppMap extends PolymerElement {
                             console.error(error)
                         })
                 }
+                map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.countryLayer)
                 map.removeLayer(this.landscapesLayer)
@@ -179,13 +182,14 @@ export default class AppMap extends PolymerElement {
                                 }
                             }
                         }).addTo(map)
-                    }, 1000);
+                    }, 100);
                 }
                 map.removeLayer(this.landscapesLayer)
                 map.removeLayer(this.municipalitiesLayer)
                 map.removeLayer(this.countryLayer)
 
             } else {
+                map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.landscapesLayer)
                 map.removeLayer(this.municipalitiesLayer)
@@ -231,7 +235,7 @@ export default class AppMap extends PolymerElement {
                         this.map.fitBounds(this.detailLayer.getBounds())
                         setTimeout(() => {
                             this.detailLayer.bringToFront()
-                        }, 1200);
+                        }, 200);
                         
                     })
                 
