@@ -321,7 +321,7 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchAutocompleteHandler(event) {
-        let request = new Request(`http://evry-lm-api.test.dropit.se/api/area/Find?type=municipality&name=${event.detail.value}`, {
+        let request = new Request(`http://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
         })
         fetch(request)
             .then((response) => {
