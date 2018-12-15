@@ -303,7 +303,7 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appFetchDetailsPlanHandler(e) {
-        let request = new Request(`http://evry-lm-api.test.dropit.se/api/detail/search?lat1=${e.detail.lat1}&long1=${e.detail.long1}&lat2=${e.detail.lat2}&long2=${e.detail.long2}`, {
+        let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/search?lat1=${e.detail.lat1}&long1=${e.detail.long1}&lat2=${e.detail.lat2}&long2=${e.detail.long2}`, {
         })
         fetch(request)
             .then((response) => {
@@ -321,7 +321,7 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchAutocompleteHandler(event) {
-        let request = new Request(`http://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
+        let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
         })
         fetch(request)
             .then((response) => {
