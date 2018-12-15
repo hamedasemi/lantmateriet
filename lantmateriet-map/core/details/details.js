@@ -114,7 +114,7 @@ export default class AppDetails extends PolymerElement {
         return {
             mode: {
                 type: Boolean,
-                value: false,
+                value: true,
                 reflectToAttribute: true
             }
         }
