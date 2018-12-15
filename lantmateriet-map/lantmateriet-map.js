@@ -144,7 +144,7 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-aside></app-aside>
                 <app-footer></app-footer>
             </app-menu>
-            <app-map address="[[state.address]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
+            <app-map address="[[state.address]]" id="[[state.id]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
             <app-details>
                 
             </app-details>
@@ -316,7 +316,8 @@ export default class LantmaterietMap extends PolymerElement {
             })
     }
 
-    appSearchHandler() {
+    appSearchHandler(e) {
+        this.set('state.id', e.detail.key)
         this.set('state.address', [59.2431705430855, 18.275679196128674])
     }
 
