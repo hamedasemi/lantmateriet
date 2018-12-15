@@ -210,9 +210,7 @@ export default class AppMap extends PolymerElement {
     addressObserver() {
         if (this.address) {
             this.map.removeLayer(this.detailLayer)
-            if (!this.map.hasLayer(this.detailLayer)) {
-                // L.marker(this.address).addTo(this.map).bindPopup('This is Denver, CO.')
-                
+            if (!this.map.hasLayer(this.detailLayer)) {                
                 fetch(new Request(`https://evry-lm-api.test.dropit.se/api/detail/FindItem?type=detail&id=${this.id}`))
                     .then(response => {
                         if (response.status === 200) {
