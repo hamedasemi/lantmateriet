@@ -34,12 +34,21 @@ export default class AppSearch extends PolymerElement {
                     height: 3rem;
                 }
 
+                [suggestion] {
+                    background: #f8f8f8;
+                    padding: 2rem;
+                    cursor: pointer;
+                }
+                [suggestion]:nth-last-of-type(2n) {
+                    background: white;
+                }
+
             </style>
             
-            <input type="text" placeholder="Sök på område" on-input="input">
+            <input type="text" placeholder="Sök på område" on-input="input" value="[[value]]">
             <dom-repeat items="[[autocompleteSuggestions]]">
                 <template>
-                    <div on-click="click" key="[[item.key]]">[[item.value]]</div>
+                    <div on-click="click" key="[[item.key]]" value="[[item.value]]" suggestion>[[item.value]]</div>
                 </template>
             </dom-repeat>
                         
@@ -66,6 +75,7 @@ export default class AppSearch extends PolymerElement {
     }
 
     click(event) {
+        this.set('value', event.target.value)
         this.dispatchEvent(new CustomEvent('app-search', { bubbles: true, composed: true, detail: { key: event.target.key } }))
         this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: null } }))
     }
