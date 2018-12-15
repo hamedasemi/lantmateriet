@@ -312,7 +312,7 @@ export default class LantmaterietMap extends PolymerElement {
                 }
             })
             .then((data) => {
-                this.set('state.dataGeoJson', data)
+                this.set('state.dataGeoJson', data.json.value)
             })
     }
 

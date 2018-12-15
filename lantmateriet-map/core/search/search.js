@@ -39,7 +39,7 @@ export default class AppSearch extends PolymerElement {
             <input type="text" placeholder="Sök på område" on-input="input">
             <dom-repeat items="[[autocompleteSuggestions]]">
                 <template>
-                    <div>[[item]]</div>
+                    <div on-click="click" key="[[item.key]]">[[item.value]]</div>
                 </template>
             </dom-repeat>
                         
@@ -63,6 +63,10 @@ export default class AppSearch extends PolymerElement {
                 type: Array
             }
         }
+    }
+
+    click(event) {
+        console.log(event.target.key)
     }
 
     input(e) {
