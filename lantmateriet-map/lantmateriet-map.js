@@ -74,7 +74,6 @@ export default class LantmaterietMap extends PolymerElement {
                     --line-height: calc(var(--baseline) / var(--font-size));
                     --accent-color: #e55721;
                     --basic-color: #333;
-
                     font-size: var(--font-size);
                     line-height: 1;
                     background: white;
@@ -83,21 +82,6 @@ export default class LantmaterietMap extends PolymerElement {
                     grid-template-columns: 50rem auto 50rem;
                     grid-template-rows: 100%;
                     border-top: 9px solid var(--accent-color);
-                }
-
-                @media only screen and (max-width: 1200px) {
-                    html {
-                        font-size: 50%;
-                    }
-                    :host {
-                        grid-template-columns: 35rem auto;
-                    }
-                }
-
-                @media only screen and (max-width: 768px) {
-                    :host { 
-                        grid-template-columns: 30rem auto;
-                    }
                 }
 
                 :host([app-menu-toggle]:not([app-details-toggle])) {
@@ -110,6 +94,37 @@ export default class LantmaterietMap extends PolymerElement {
                 :host([app-menu-toggle][app-details-toggle]) {
                     grid-template-columns: 0 auto 0;
                 }
+
+                @media (max-width: 1200px) {
+                    :host([app-menu-toggle]:not([app-details-toggle])) {
+                        grid-template-columns: 0 auto 40rem;
+                    }
+                    :host([app-details-toggle]:not([app-menu-toggle])) {
+                        grid-template-columns: 40rem auto 0;
+                    }
+
+                    :host([app-menu-toggle][app-details-toggle]) {
+                        grid-template-columns: 0 auto 0;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    :host(:not([app-menu-toggle]):not([app-details-toggle])) {
+                        grid-template-columns: 35rem auto 35rem;
+                    }
+                    :host([app-menu-toggle]:not([app-details-toggle])) {
+                        grid-template-columns: 0 auto 35rem;
+                    }
+                    :host([app-details-toggle]:not([app-menu-toggle])) {
+                        grid-template-columns: 35rem auto 0;
+                    }
+
+                    :host([app-menu-toggle][app-details-toggle]) {
+                        grid-template-columns: 0 auto 0;
+                    }
+                }
+
+                
             </style>
             
             <app-menu>

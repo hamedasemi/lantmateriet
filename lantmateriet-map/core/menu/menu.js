@@ -58,6 +58,7 @@ export default class AppMenu extends PolymerElement {
 
                 main {
                     overflow: auto;
+                    -webkit-overflow-scrolling: touch;
                     display: block;
                     padding: 4rem;
                     display: flex;

@@ -23,7 +23,7 @@ export default class AppDetails extends PolymerElement {
                     align-items: center;
                     justify-content: center;
                     right: 100%;
-                    top: 7.7rem;
+                    top: 17.7rem;
                     width: 8rem;
                     height: 8rem;
                     background: var(--accent-color);
