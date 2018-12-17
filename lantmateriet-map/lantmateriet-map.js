@@ -166,9 +166,7 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-footer></app-footer>
             </app-menu>
             <app-map address="[[state.address]]" id="[[state.id]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
-            <app-details>
-                
-            </app-details>
+            <app-details data="[[state.detailsData]]" mode="[[state.detailsMode]]"></app-details>
 
             <noscript>Your browser does not support JavaScript!</noscript>
         `
@@ -367,13 +365,10 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appDetailsDataHandler(event) {
-        console.log(event.detail.value)
-        console.log(event.detail.address)
-        console.log(event.detail.name)
-        console.log(event.detail.info)
-        console.log(event.detail.email)
-        console.log(event.detail.paragraph)
-        console.log(event.detail.text)
+        this.set('state.detailsData', event.detail.data)
+        this.set('state.detailsMode', false)
+        this.set('appDetailsToggle', false)
+        window.dispatchEvent(new Event('resize'))
     }
 
     appResetHandler(event) {

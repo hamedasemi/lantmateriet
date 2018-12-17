@@ -133,29 +133,30 @@ export default class AppMap extends PolymerElement {
                 map.removeLayer(this.countryLayer)
                 map.removeLayer(this.municipalitiesLayer)
             } else if (7 < data.target._zoom && data.target._zoom < 18) {
-                if (!map.hasLayer(this.municipalitiesLayer)) {
-                    fetch(new Request('lantmateriet-map/core/map/data/municipalities.json'))
-                        .then(response => {
-                            if (response.status === 200) {
-                                return response.json()
-                            } else {
-                                throw new Error('Something went wrong on api server!')
+                
+                fetch(new Request(`https://evry-lm-api.test.dropit.se/api/area/search?type=municipality&lat1=${this.map.getBounds().getNorthEast().lat}&long1=${this.map.getBounds().getNorthEast().lng}&lat2=${this.map.getBounds().getSouthWest().lat}&long2=${this.map.getBounds().getSouthWest().lng}`))
+                    .then(response => {
+                        if (response.status === 200) {
+                            return response.json()
+                        } else {
+                            throw new Error('Something went wrong on api server!')
+                        }
+                    })
+                    .then(response => {
+                        map.removeLayer(this.municipalitiesLayer)
+                        this.municipalitiesLayer = L.geoJSON(response, {
+                            style: {
+                                fillColor: "var(--accent-color)",
+                                color: "var(--accent-color)"
                             }
-                        })
-                        .then(response => {
-                            this.municipalitiesLayer = L.geoJSON(response, {
-                                style: {
-                                    fillColor: "var(--accent-color)",
-                                    color: "var(--accent-color)"
-                                }
-                            }).addTo(map)
+                        }).addTo(map)
 
 
 
-                        }).catch(error => {
-                            console.error(error)
-                        })
-                }
+                    }).catch(error => {
+                        console.error(error)
+                    })
+
                 map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.countryLayer)
@@ -178,7 +179,18 @@ export default class AppMap extends PolymerElement {
                                     })
                                     layer.bindPopup('<h1>' + feature.properties.description + ', Videbacken 1</h1><p>Berörd detaljplan: 378 <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">Plankarta</a></p>')
                                 } else {
-                                    layer.bindPopup('<h1>' + feature.properties.description + '</h1>')
+                                    layer.bindPopup(`
+                                        <h1>${feature.properties.description}</h1>
+                                        <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
+                                            value: '${feature.properties.description}',
+                                            name: '${feature.properties.description}',
+                                            address: '${feature.properties.description}',
+                                            info: '${feature.properties.description}',
+                                            email: '${feature.properties.description}',
+                                            paragraph: '${feature.properties.description}',
+                                            text: '${feature.properties.description}'
+                                        } } }))">Visa detaljplan</app-button>
+                                    `)
                                 }
                             }
                         }).addTo(map)
@@ -229,7 +241,7 @@ export default class AppMap extends PolymerElement {
                             onEachFeature: (feature, layer) => {
                                 layer.bindPopup(`
                                     <h1>${feature.properties.description}</h1>
-                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { 
+                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
                                         value: '${feature.properties.description}',
                                         name: '${feature.properties.description}',
                                         address: '${feature.properties.description}',
@@ -237,7 +249,7 @@ export default class AppMap extends PolymerElement {
                                         email: '${feature.properties.description}',
                                         paragraph: '${feature.properties.description}',
                                         text: '${feature.properties.description}'
-                                    } }))">Visa detaljplan</app-button>
+                                    } } }))">Visa detaljplan</app-button>
                                 `)
                             }
                         }).addTo(this.map)
