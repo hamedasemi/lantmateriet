@@ -105,35 +105,34 @@ export default class AppMap extends PolymerElement {
                 map.removeLayer(this.landscapesLayer)
                 map.removeLayer(this.municipalitiesLayer)
             } else if (5 < data.target._zoom && data.target._zoom <= 7) {
-                if (!map.hasLayer(this.landscapesLayer)) {
-                    fetch(new Request('lantmateriet-map/core/map/data/landscapes.json'))
-                        .then(response => {
-                            if (response.status === 200) {
-                                return response.json()
-                            } else {
-                                throw new Error('Something went wrong on api server!')
+                fetch(new Request(`https://evry-lm-api.test.dropit.se/api/area/search?type=county&lat1=${this.map.getBounds().getNorthEast().lat}&long1=${this.map.getBounds().getNorthEast().lng}&lat2=${this.map.getBounds().getSouthWest().lat}&long2=${this.map.getBounds().getSouthWest().lng}`))
+                    .then(response => {
+                        if (response.status === 200) {
+                            return response.json()
+                        } else {
+                            throw new Error('Something went wrong on api server!')
+                        }
+                    })
+                    .then(response => {
+                        map.removeLayer(this.landscapesLayer)
+                        this.landscapesLayer = L.geoJSON(response, {
+                            style: {
+                                fillColor: "var(--accent-color)",
+                                color: "var(--accent-color)"
                             }
-                        })
-                        .then(response => {
-                            this.landscapesLayer = L.geoJSON(response, {
-                                style: {
-                                    fillColor: "var(--accent-color)",
-                                    color: "var(--accent-color)"
-                                }
-                            }).addTo(map)
+                        }).addTo(map)
 
 
 
-                        }).catch(error => {
-                            console.error(error)
-                        })
-                }
+                    }).catch(error => {
+                        console.error(error)
+                    })
                 map.removeLayer(this.detailLayer)
                 map.removeLayer(this.detailsLayer)
                 map.removeLayer(this.countryLayer)
                 map.removeLayer(this.municipalitiesLayer)
             } else if (7 < data.target._zoom && data.target._zoom < 18) {
-                
+
                 fetch(new Request(`https://evry-lm-api.test.dropit.se/api/area/search?type=municipality&lat1=${this.map.getBounds().getNorthEast().lat}&long1=${this.map.getBounds().getNorthEast().lng}&lat2=${this.map.getBounds().getSouthWest().lat}&long2=${this.map.getBounds().getSouthWest().lng}`))
                     .then(response => {
                         if (response.status === 200) {
