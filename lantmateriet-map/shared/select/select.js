@@ -32,7 +32,7 @@ export default class AppSelect extends PolymerElement {
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    
+                    height: 2.2rem;
                 }
 
                 [options] {

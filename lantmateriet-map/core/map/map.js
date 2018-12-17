@@ -180,6 +180,7 @@ export default class AppMap extends PolymerElement {
                                 } else {
                                     layer.bindPopup(`
                                         <h1>${feature.properties.description}</h1>
+                                        <br>
                                         <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
                                             value: '${feature.properties.description}',
                                             name: '${feature.properties.description}',
@@ -240,6 +241,7 @@ export default class AppMap extends PolymerElement {
                             onEachFeature: (feature, layer) => {
                                 layer.bindPopup(`
                                     <h1>${feature.properties.description}</h1>
+                                    <br>
                                     <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
                                         value: '${feature.properties.description}',
                                         name: '${feature.properties.description}',
