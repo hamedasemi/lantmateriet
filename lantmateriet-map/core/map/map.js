@@ -163,6 +163,7 @@ export default class AppMap extends PolymerElement {
 
             } else if (18 <= data.target._zoom) {
                 if (!this.map.hasLayer(this.detailsLayer)) {
+                    let selected
 
                     this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: { lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng } }))
                     setTimeout(() => {
@@ -178,6 +179,20 @@ export default class AppMap extends PolymerElement {
                                     })
                                     layer.bindPopup('<h1>' + feature.properties.description + ', Videbacken 1</h1><p>Berörd detaljplan: 378 <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">Plankarta</a></p>')
                                 } else {
+                                    layer.on({
+                                        click: (e) => {
+                                            e.target.setStyle({
+                                                fillColor: "black",
+                                                color: "black"
+                                            })
+                                            if (selected) {
+                                                this.detailsLayer.resetStyle(selected)
+                                            }
+                                            selected = e.target
+                                            e.target.bringToFront()
+                                            map.fitBounds(e.target.getBounds())
+                                        }
+                                    })
                                     layer.bindPopup(`
                                         <h1>${feature.properties.description}</h1>
                                         <br>
