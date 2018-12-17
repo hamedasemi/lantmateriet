@@ -95,10 +95,8 @@ export default class AppSearch extends PolymerElement {
     }
 
     input(e) {
-        if(e.target.value.length >= 3) {
             this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: event.target.value } }))
         }
     }
-}
 
 window.customElements.define('app-search', AppSearch)
