@@ -22,6 +22,7 @@ import { } from './core/details/details.js'
 import { } from './core/search/search.js'
 import { } from './core/tags/tags.js'
 import { } from './core/title/title.js'
+import { } from './core/reset/reset.js'
 
 import { } from './shared/text/text.js'
 import { } from './shared/line/line.js'
