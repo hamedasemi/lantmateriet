@@ -212,13 +212,14 @@ export default class AppMap extends PolymerElement {
                                         <h1>${feature.properties.description}</h1>
                                         <br>
                                         <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
-                                            value: '${feature.properties.description}',
-                                            name: '${feature.properties.description}',
-                                            address: '${feature.properties.description}',
-                                            info: '${feature.properties.description}',
-                                            email: '${feature.properties.description}',
-                                            paragraph: '${feature.properties.description}',
-                                            text: '${feature.properties.description}'
+                                            name: '${feature.properties.name}',
+                                            a1: '${feature.properties.a1}',
+                                            b1: '${feature.properties.b1}',
+                                            description: '${feature.properties.description}',
+                                            e1: '${feature.properties.e1}',
+                                            e2: '${feature.properties.e2}',
+                                            e3: '${feature.properties.e3}',
+                                            e4: '${feature.properties.e4}'
                                         } } }))">Visa detaljplan</app-button>
                                     `)
                                 }
@@ -273,13 +274,14 @@ export default class AppMap extends PolymerElement {
                                     <h1>${feature.properties.description}</h1>
                                     <br>
                                     <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
-                                        value: '${feature.properties.description}',
-                                        name: '${feature.properties.description}',
-                                        address: '${feature.properties.description}',
-                                        info: '${feature.properties.description}',
-                                        email: '${feature.properties.description}',
-                                        paragraph: '${feature.properties.description}',
-                                        text: '${feature.properties.description}'
+                                        name: '${feature.properties.name}',
+                                        a1: '${feature.properties.a1}',
+                                        b1: '${feature.properties.b1}',
+                                        description: '${feature.properties.description}',
+                                        e1: '${feature.properties.e1}',
+                                        e2: '${feature.properties.e2}',
+                                        e3: '${feature.properties.e3}',
+                                        e4: '${feature.properties.e4}'
                                     } } }))">Visa detaljplan</app-button>
                                 `)
                             }
