@@ -94,9 +94,9 @@ export default class AppSearch extends PolymerElement {
         this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: null } }))
     }
 
-    input(e) {
-            this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: event.target.value } }))
-        }
+    input(event) {
+        this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: event.target.value } }))
     }
+}
 
 window.customElements.define('app-search', AppSearch)
