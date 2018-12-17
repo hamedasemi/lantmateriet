@@ -342,17 +342,32 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchAutocompleteHandler(event) { 
-        let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
-        })
-        fetch(request)
-            .then((response) => {
-                if (response.status === 200) {
-                    return response.json()
-                }
+        if(event.detail.value && typeof event.detail.value.charAt(0).match(/[0-9]/)) {
+            let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
             })
-            .then((data) => {
-                this.set('state.autocompleteSuggestions', data.json)
+            fetch(request)
+                .then((response) => {
+                    if (response.status === 200) {
+                        return response.json()
+                    }
+                })
+                .then((data) => {
+                    this.set('state.autocompleteSuggestions', data.json)
+                })
+        } else if(event.detail.value && event.detail.value.charAt(0).match(/[a-z]/i)) {
+            let request = new Request(`https://evry-lm-api.test.dropit.se/api/street/Find?type=detail&name=${event.detail.value}`, {
             })
+            fetch(request)
+                .then((response) => {
+                    if (response.status === 200) {
+                        return response.json()
+                    }
+                })
+                .then((data) => {
+                    this.set('state.autocompleteSuggestions', data.json)
+                })
+        }
+        
     }
 
     appInputRangeMinHandler(event) {
