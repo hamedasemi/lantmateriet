@@ -27,6 +27,7 @@ import { } from './shared/text/text.js'
 import { } from './shared/line/line.js'
 import { } from './shared/drop-down/drop-down.js'
 import { } from './shared/select/select.js'
+import { } from './shared/button/button.js'
 import { } from './shared/input-range/input-range.js'
 
 
