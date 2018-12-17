@@ -22,7 +22,7 @@ export default class AppReset extends PolymerElement {
 
     click() {
         this.dispatchEvent(new CustomEvent('app-reset', { bubbles: true, composed: true, detail: {} }))
-    }
+        location.reload()    }
 
 }
 
