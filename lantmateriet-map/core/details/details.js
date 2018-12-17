@@ -100,7 +100,14 @@ export default class AppDetails extends PolymerElement {
                     </app-toggle>
                     <div>
                         <main>
-                            <h1>[[data.name]]</h1>
+                            <h1>[[data.name]]</h1><br>
+                            <p> A1 [[data.a1]]</p><br>
+                            <p>B1 [[data.b1]]</p><br>
+                            <p>Description [[data.description]]</p><br>
+                            <p>E1 [[data.e1]]</p><br>
+                            <p>E2 [[data.e2]]</p><br>
+                            <p>E3 [[data.e3]]</p><br>
+                            <p>E4 [[data.e4]]</p><br>
                         </main>
                     </div>
                 </template>
