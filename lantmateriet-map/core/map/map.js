@@ -247,14 +247,19 @@ export default class AppMap extends PolymerElement {
             address: {
                 type: Array,
                 observer: 'addressObserver'
+            },
+            searchType: {
+                type: String
             }
         }
     }
     addressObserver() {
         if (this.address) {
+
             this.map.removeLayer(this.detailLayer)
+
             if (!this.map.hasLayer(this.detailLayer)) {
-                fetch(new Request(`https://evry-lm-api.test.dropit.se/api/detail/FindItem?type=detail&id=${this.id}`))
+                fetch(new Request(`https://evry-lm-api.test.dropit.se/api/${this.searchType}/FindItem?id=${this.id}`))
                     .then(response => {
                         if (response.status === 200) {
                             return response.json()
@@ -294,6 +299,10 @@ export default class AppMap extends PolymerElement {
                     })
 
             }
+
+
+
+            
             this.map.removeLayer(this.landscapesLayer)
             this.map.removeLayer(this.municipalitiesLayer)
             this.map.removeLayer(this.countryLayer)

@@ -165,7 +165,7 @@ export default class LantmaterietMap extends PolymerElement {
                 <app-aside></app-aside>
                 <app-footer></app-footer>
             </app-menu>
-            <app-map address="[[state.address]]" id="[[state.id]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
+            <app-map address="[[state.address]]" id="[[state.id]]" search-type="[[state.searchType]]" data-geo-json="[[state.dataGeoJson]]"></app-map>
             <app-details data="[[state.detailsData]]" mode="[[state.detailsMode]]"></app-details>
 
             <noscript>Your browser does not support JavaScript!</noscript>
@@ -207,7 +207,7 @@ export default class LantmaterietMap extends PolymerElement {
             state: {
                 type: Object,
                 value: {
-                    searchTerm: "",
+                    searchType: "",
                     autocompleteSuggestions: [],
                     permittedBuildingHeightMin: 0,
                     permittedBuildingHeightMax: 100,
@@ -337,12 +337,18 @@ export default class LantmaterietMap extends PolymerElement {
     }
 
     appSearchHandler(e) {
+        if(e.detail.value.charAt(0).match(/[0-9]/)) {
+            this.set('state.searchType', 'detail')
+        } else if(e.detail.value.match(/[a-z]/i)) {
+            this.set('state.searchType', 'street')
+        }
+        
         this.set('state.id', e.detail.key)
         this.set('state.address', [59.2431705430855, 18.275679196128674])
     }
 
     appSearchAutocompleteHandler(event) { 
-        if(event.detail.value && typeof event.detail.value.charAt(0).match(/[0-9]/)) {
+        if(event.detail.value && event.detail.value.charAt(0).match(/[0-9]/)) {
             let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
             })
             fetch(request)
