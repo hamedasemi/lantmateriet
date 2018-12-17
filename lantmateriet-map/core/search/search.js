@@ -97,7 +97,7 @@ export default class AppSearch extends PolymerElement {
     input(event) {
         if(event.target.value.charAt(0).match(/[0-9]/)) {
             this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: event.target.value } }))
-        } else if(event.target.value.match(/[a-z]/i) && event.target.value.length <= 3) {
+        } else if(event.target.value.match(/[a-z]/i) && event.target.value.length >= 3) {
             this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: event.target.value } }))
         }
     }
