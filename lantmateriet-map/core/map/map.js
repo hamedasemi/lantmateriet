@@ -163,7 +163,7 @@ export default class AppMap extends PolymerElement {
 
             } else if (18 <= data.target._zoom) {
                 if (!this.map.hasLayer(this.detailsLayer)) {
-                                
+
                     this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: { lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng } }))
                     setTimeout(() => {
                         this.detailsLayer = L.geoJSON(this.dataGeoJson, {
@@ -210,7 +210,7 @@ export default class AppMap extends PolymerElement {
     addressObserver() {
         if (this.address) {
             this.map.removeLayer(this.detailLayer)
-            if (!this.map.hasLayer(this.detailLayer)) {                
+            if (!this.map.hasLayer(this.detailLayer)) {
                 fetch(new Request(`https://evry-lm-api.test.dropit.se/api/detail/FindItem?type=detail&id=${this.id}`))
                     .then(response => {
                         if (response.status === 200) {
@@ -227,16 +227,19 @@ export default class AppMap extends PolymerElement {
                                 color: "black"
                             },
                             onEachFeature: (feature, layer) => {
-                                layer.bindPopup('<h1>' + feature.properties.description + '</h1>')
+                                layer.bindPopup(`
+                                    <h1>${feature.properties.description}</h1>
+                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { value: '${feature.properties.description}' } }))">Visa detaljplan</app-button>
+                                `)
                             }
                         }).addTo(this.map)
                         this.map.fitBounds(this.detailLayer.getBounds())
                         setTimeout(() => {
                             this.detailLayer.bringToFront()
                         }, 200);
-                        
+
                     })
-                
+
             }
             this.map.removeLayer(this.landscapesLayer)
             this.map.removeLayer(this.municipalitiesLayer)

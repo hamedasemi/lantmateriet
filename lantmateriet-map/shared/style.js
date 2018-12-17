@@ -38,6 +38,11 @@ $_documentContainer.innerHTML = `<dom-module id="shared-style">
         margin-top: 1rem;
         box-shadow: none;
       }
+
+      .leaflet-popup-content-wrapper {
+          padding: 1rem;
+          border-radius: .6rem;
+      }
     </style>
   </template>
 </dom-module>`;

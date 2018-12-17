@@ -46,6 +46,7 @@ export default class LantmaterietMap extends PolymerElement {
         this.addEventListener('app-menu-toggle', this.appMenuToggleHandler)
         this.addEventListener('app-details-toggle', this.appDetailsToggleHandler)
         this.addEventListener('app-search', this.appSearchHandler)
+        this.addEventListener('app-details-data', this.appDetailsDataHandler)
         this.addEventListener('app-fetch-details-plan', this.appFetchDetailsPlanHandler)
         this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
         this.addEventListener('app-input-range-min', this.appInputRangeMinHandler)
@@ -360,6 +361,10 @@ export default class LantmaterietMap extends PolymerElement {
 
     appInputRangeMaxHandler() {
         this.set(`state.${event.detail.name}Max`, event.detail.value)
+    }
+
+    appDetailsDataHandler(event) {
+        console.log(event.detail.value)
     }
 }
 

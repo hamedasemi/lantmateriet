@@ -15,6 +15,7 @@ export default class AppButton extends PolymerElement {
                     padding: 2rem;
                     text-align: center;
                     cursor: pointer;
+                    font-size: 2rem;
                 }
 
             </style>
