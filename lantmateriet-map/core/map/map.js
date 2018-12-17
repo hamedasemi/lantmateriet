@@ -188,41 +188,34 @@ export default class AppMap extends PolymerElement {
                                 color: "var(--accent-color)"
                             },
                             onEachFeature: (feature, layer) => {
-                                if (feature.properties.description === 'Vidjan 3') {
-                                    layer.setStyle({
-                                        fillColor: 'red',
-                                    })
-                                    layer.bindPopup('<h1>' + feature.properties.description + ', Videbacken 1</h1><p>Berörd detaljplan: 378 <a target="_blank" href="lantmateriet-map/core/map/data/378_Bostäder_Videbacken_1_Plankarta.pdf">Plankarta</a></p>')
-                                } else {
-                                    layer.on({
-                                        click: (e) => {
-                                            e.target.setStyle({
-                                                fillColor: "black",
-                                                color: "black"
-                                            })
-                                            if (selected) {
-                                                this.detailsLayer.resetStyle(selected)
-                                            }
-                                            selected = e.target
-                                            e.target.bringToFront()
-                                            map.fitBounds(e.target.getBounds())
+                                layer.on({
+                                    click: (e) => {
+                                        e.target.setStyle({
+                                            fillColor: "black",
+                                            color: "black"
+                                        })
+                                        if (selected) {
+                                            this.detailsLayer.resetStyle(selected)
                                         }
-                                    })
-                                    layer.bindPopup(`
-                                        <h1>${feature.properties.description}</h1>
-                                        <br>
-                                        <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
-                                            name: '${feature.properties.name}',
-                                            a1: '${feature.properties.a1}',
-                                            b1: '${feature.properties.b1}',
-                                            description: '${feature.properties.description}',
-                                            e1: '${feature.properties.e1}',
-                                            e2: '${feature.properties.e2}',
-                                            e3: '${feature.properties.e3}',
-                                            e4: '${feature.properties.e4}'
-                                        } } }))">Visa detaljplan</app-button>
-                                    `)
-                                }
+                                        selected = e.target
+                                        e.target.bringToFront()
+                                        map.fitBounds(e.target.getBounds())
+                                    }
+                                })
+                                layer.bindPopup(`
+                                    <h1>${feature.properties.description}</h1>
+                                    <br>
+                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { data: { 
+                                        name: '${feature.properties.name}',
+                                        a1: '${feature.properties.a1}',
+                                        b1: '${feature.properties.b1}',
+                                        description: '${feature.properties.description}',
+                                        e1: '${feature.properties.e1}',
+                                        e2: '${feature.properties.e2}',
+                                        e3: '${feature.properties.e3}',
+                                        e4: '${feature.properties.e4}'
+                                    } } }))">Visa detaljplan</app-button>
+                                `)
                             }
                         }).addTo(map)
                     }, 100);
@@ -302,7 +295,7 @@ export default class AppMap extends PolymerElement {
 
 
 
-            
+
             this.map.removeLayer(this.landscapesLayer)
             this.map.removeLayer(this.municipalitiesLayer)
             this.map.removeLayer(this.countryLayer)

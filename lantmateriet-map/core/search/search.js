@@ -83,7 +83,8 @@ export default class AppSearch extends PolymerElement {
     static get properties() {
         return {
             autocompleteSuggestions: {
-                type: Array
+                type: Array,
+                value: []
             }
         }
     }
@@ -91,7 +92,8 @@ export default class AppSearch extends PolymerElement {
     click(event) {
         this.set('value', event.target.value)
         this.dispatchEvent(new CustomEvent('app-search', { bubbles: true, composed: true, detail: { key: event.target.key, value: event.target.value} }))
-        this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: null } }))
+        this.dispatchEvent(new CustomEvent('app-search-autocomplete', { bubbles: true, composed: true, detail: { value: [] } }))
+        this.set('autocompleteSuggestions', [])
     }
 
     input(event) {
