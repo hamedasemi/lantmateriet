@@ -155,6 +155,8 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-text margin-bottom>Tillåten tomtarea</app-text>
                     <app-text margin-bottom center>[[state.allowableLandAreaMin]] kvm - [[state.allowableLandAreaMax]]+ kvm </app-text>
                     <app-input-range min="0" max="10000" name="allowableLandArea"></app-input-range>
+                    <app-line horizontal margin-bottom></app-line>
+                    <app-button>Återställ filtrering</app-button>
                 </app-filters>                                                                
                 <app-aside></app-aside>
                 <app-footer></app-footer>
