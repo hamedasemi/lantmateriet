@@ -52,6 +52,7 @@ export default class LantmaterietMap extends PolymerElement {
         this.addEventListener('app-search-autocomplete', this.appSearchAutocompleteHandler)
         this.addEventListener('app-input-range-min', this.appInputRangeMinHandler)
         this.addEventListener('app-input-range-max', this.appInputRangeMaxHandler)
+        this.addEventListener('app-reset', this.appResetHandler)
 
 
         // ------------------------------------------------------------------------------------------------------------------------------------------
@@ -159,7 +160,7 @@ export default class LantmaterietMap extends PolymerElement {
                     <app-text margin-bottom center>[[state.allowableLandAreaMin]] kvm - [[state.allowableLandAreaMax]]+ kvm </app-text>
                     <app-input-range min="0" max="10000" name="allowableLandArea"></app-input-range>
                     <app-line horizontal margin-bottom></app-line>
-                    <app-button>Återställ filtrering</app-button>
+                    <app-reset></app-reset>
                 </app-filters>                                                                
                 <app-aside></app-aside>
                 <app-footer></app-footer>
@@ -208,6 +209,7 @@ export default class LantmaterietMap extends PolymerElement {
             state: {
                 type: Object,
                 value: {
+                    searchTerm: "",
                     autocompleteSuggestions: [],
                     permittedBuildingHeightMin: 0,
                     permittedBuildingHeightMax: 100,
@@ -341,7 +343,7 @@ export default class LantmaterietMap extends PolymerElement {
         this.set('state.address', [59.2431705430855, 18.275679196128674])
     }
 
-    appSearchAutocompleteHandler(event) {
+    appSearchAutocompleteHandler(event) { 
         let request = new Request(`https://evry-lm-api.test.dropit.se/api/detail/Find?type=detail&name=${event.detail.value}`, {
         })
         fetch(request)
@@ -372,6 +374,11 @@ export default class LantmaterietMap extends PolymerElement {
         console.log(event.detail.email)
         console.log(event.detail.paragraph)
         console.log(event.detail.text)
+    }
+
+    appResetHandler(event) {
+        // this.set('state.autocompleteSuggestions', [])
+        // this.set('state.searchTerm', "")
     }
 }
 
