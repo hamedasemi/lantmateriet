@@ -229,7 +229,15 @@ export default class AppMap extends PolymerElement {
                             onEachFeature: (feature, layer) => {
                                 layer.bindPopup(`
                                     <h1>${feature.properties.description}</h1>
-                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { value: '${feature.properties.description}' } }))">Visa detaljplan</app-button>
+                                    <app-button onclick="this.dispatchEvent(new CustomEvent('app-details-data', { bubbles: true, composed: true, detail: { 
+                                        value: '${feature.properties.description}',
+                                        name: '${feature.properties.description}',
+                                        address: '${feature.properties.description}',
+                                        info: '${feature.properties.description}',
+                                        email: '${feature.properties.description}',
+                                        paragraph: '${feature.properties.description}',
+                                        text: '${feature.properties.description}'
+                                    } }))">Visa detaljplan</app-button>
                                 `)
                             }
                         }).addTo(this.map)

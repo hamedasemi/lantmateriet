@@ -365,6 +365,12 @@ export default class LantmaterietMap extends PolymerElement {
 
     appDetailsDataHandler(event) {
         console.log(event.detail.value)
+        console.log(event.detail.address)
+        console.log(event.detail.name)
+        console.log(event.detail.info)
+        console.log(event.detail.email)
+        console.log(event.detail.paragraph)
+        console.log(event.detail.text)
     }
 }
 
