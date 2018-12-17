@@ -119,6 +119,13 @@ export default class AppMap extends PolymerElement {
                             style: {
                                 fillColor: "var(--accent-color)",
                                 color: "var(--accent-color)"
+                            },
+                            onEachFeature: (feature, layer) => {
+                                layer.on({
+                                    click: (e) => {
+                                        map.fitBounds(e.target.getBounds())
+                                    }
+                                })
                             }
                         }).addTo(map)
 
@@ -143,10 +150,18 @@ export default class AppMap extends PolymerElement {
                     })
                     .then(response => {
                         map.removeLayer(this.municipalitiesLayer)
+                        let selected
                         this.municipalitiesLayer = L.geoJSON(response, {
                             style: {
                                 fillColor: "var(--accent-color)",
                                 color: "var(--accent-color)"
+                            },
+                            onEachFeature: (feature, layer) => {
+                                layer.on({
+                                    click: (e) => {
+                                        map.fitBounds(e.target.getBounds())
+                                    }
+                                })
                             }
                         }).addTo(map)
 
