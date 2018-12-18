@@ -202,7 +202,7 @@ export default class AppMap extends PolymerElement {
                                         map.fitBounds(e.target.getBounds())
                                     }
                                 })
-                                if (feature.properties.description !== undefined) {
+                                if (feature.properties.name !== undefined) {
                                     layer.bindPopup(`
                                         <h1>${feature.properties.description}</h1>
                                         <br>
@@ -271,7 +271,7 @@ export default class AppMap extends PolymerElement {
                                 color: "black"
                             },
                             onEachFeature: (feature, layer) => {
-                                if (feature.properties.description !== undefined) {
+                                if (feature.properties.name !== undefined) {
                                     layer.bindPopup(`
                                         <h1>${feature.properties.description}</h1>
                                         <br>
