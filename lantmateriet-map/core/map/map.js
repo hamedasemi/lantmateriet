@@ -179,8 +179,8 @@ export default class AppMap extends PolymerElement {
             } else if (18 <= data.target._zoom) {
                 if (!this.map.hasLayer(this.detailsLayer)) {
                     let selected
-
-                    this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: { lat1: this.map.getBounds().getNorthEast().lat, long1: this.map.getBounds().getNorthEast().lng, lat2: this.map.getBounds().getSouthWest().lat, long2: this.map.getBounds().getSouthWest().lng } }))
+                    const bounds = this.map.getBounds().pad(.8);
+                    this.dispatchEvent(new CustomEvent('app-fetch-details-plan', { bubbles: true, composed: true, detail: { lat1: bounds.getNorthEast().lat, long1: bounds.getNorthEast().lng, lat2: bounds.getSouthWest().lat, long2: bounds.getSouthWest().lng } }))
                     setTimeout(() => {
                         this.detailsLayer = L.geoJSON(this.dataGeoJson, {
                             style: {
