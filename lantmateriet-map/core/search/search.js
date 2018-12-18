@@ -18,7 +18,7 @@ export default class AppSearch extends PolymerElement {
 
                 input {
                     font-size: 2.4rem;
-                    padding: 2rem;
+                    padding: 2rem 6rem 2rem 2rem;
                     width: 100%;
                     border: 1px solid;
                     border-radius: .4rem;
