@@ -191,8 +191,8 @@ export default class AppMap extends PolymerElement {
                                 layer.on({
                                     click: (e) => {
                                         e.target.setStyle({
-                                            fillColor: "gray",
-                                            color: "gray"
+                                            fillColor: "rgb(50,50,50)",
+                                            color: "rgb(50,50,50)"
                                         })
                                         if (selected) {
                                             this.detailsLayer.resetStyle(selected)
